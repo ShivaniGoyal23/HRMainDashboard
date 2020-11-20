@@ -14,10 +14,23 @@ a{
     color:#FFFFFF;   
 }
 
+a.employeename:hover {
+    color: rgb(112, 4, 4);
+    text-decoration: none;
+}
+
+a.logout:hover {
+    color: rgb(131, 0, 0);
+    text-decoration: none;
+}
+
 .main{
  padding:0px 0px 0px 0px;
 }
 
+.container{
+    max-width: 1350px;
+}
 
 .personaldet{
     background: #FFFFFF;
