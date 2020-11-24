@@ -1,0 +1,45 @@
+body{
+    margin:0px;
+    padding:0px;
+    background: #D6E9F7;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+a{
+    color:#FFFFFF;
+}
+
+.navbar{
+    background: #2F8ED4;
+    color:#FFFFFF;   
+}
+
+a.employeename:hover {
+    color: rgb(112, 4, 4);
+    text-decoration: none;
+}
+
+a.logout:hover {
+    color: rgb(112, 4, 4);
+    text-decoration: none;
+}
+
+.main{
+ padding:0px 0px 0px 0px;
+}
+
+.container{
+    max-width: 1350px;
+}
+
+.personaldet{
+    background: #FFFFFF;
+    
+    padding:50px 0px 50px 0px;
+}
+
+.search{
+margin:0px 0px 0px 0px;
+border:2px solid #2F8ED4;
+}
