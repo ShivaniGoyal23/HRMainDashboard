@@ -5,7 +5,7 @@ body{
     background-size: cover;
     font-family: 'Roboto', sans-serif;
 }
-a{
+a.employeename,.logout{
     color:#FFFFFF;
 }
 
