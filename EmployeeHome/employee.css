@@ -40,3 +40,10 @@ a.logout:hover {
 .empdetails{
     margin:50px 0px 0px 0px;
 }
+
+table, td {
+    border-collapse: collapse;
+  }
+td {
+    padding: 5px;
+  }
