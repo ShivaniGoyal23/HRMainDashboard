@@ -7,14 +7,14 @@ body{
 }
 
 .wrapper{
-position: absolute;
+
 width: 320px;
 height: 520px;
 background: #FAFAFA;
 border: 3px solid #2F8ED4;
 border-radius: 10px;
-left: 510px;
-top: 225px;
+padding: 40px;
+margin: 8% auto 0;  
 }
 
 
