@@ -9,7 +9,7 @@ body{
 .wrapper{
 
 width: 320px;
-height: 520px;
+height: auto;
 background: #FAFAFA;
 border: 3px solid #2F8ED4;
 border-radius: 10px;
@@ -20,7 +20,7 @@ margin: 8% auto 0;
 
 
   /* Full-width inputs */
-  input[type=email], input[type=password] {
+  input[type=email], input[type=password], input[type=text], input[type=number] {
     width: 100%;
     padding: 12px 10px;
     margin: 8px 0;
@@ -32,7 +32,13 @@ margin: 8% auto 0;
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
+    -moz-appearance: textfield;
   }
+
+  input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
   b{
       font-size: 15px;
@@ -88,3 +94,4 @@ margin: 8% auto 0;
   .forgotpass{
      margin: 15px 0px;
   }
+
