@@ -39,9 +39,43 @@ a.navbar-brand,.employeename,.logout{
 .search{
     margin:0px 0px 0px 0px;
     border:2px solid #2F8ED4;
-    }
+}
     
  .empdetails{
         margin:50px 0px 0px 0px;
-    }
-       
+}
+
+a.hr1{
+        font-size: 20px;
+        padding: 30px;
+        margin: 10px;
+}
+
+label.radio{
+font-size: 18px;
+margin: 5px;
+padding: 2px;
+}
+
+label{
+    padding-left: 30px;
+    font-size: 18px;
+    margin: 5px;
+    display: inline-block;
+    clear: left;
+    width: 250px;
+}
+
+.submit{
+margin: 30px 200px;
+}
+
+/* .containerx {
+    width: 1000px;
+    clear: both;
+  }
+  
+  .containerx input {
+    width: 50%;
+    clear: both;
+  } */
