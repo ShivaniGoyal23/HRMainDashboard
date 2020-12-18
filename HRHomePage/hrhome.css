@@ -9,6 +9,10 @@ body{
 a.navbar-brand,.employeename,.logout{
     color:#FFFFFF;
 }
+.logo{
+width: 200px;
+height:80px;
+}
 
 .navbar{
     background: #2F8ED4;
