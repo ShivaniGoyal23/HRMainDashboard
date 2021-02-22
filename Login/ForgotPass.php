@@ -24,14 +24,14 @@
                  <input type="text" placeholder="Enter Full Name" name="name" required>
                </div>
                <div class="input-icons">
-                   <label for="EID"><b>Employee ID</b></label>
+                   <label for="E_ID"><b>Employee ID</b></label>
                  
-                 <input type="number" placeholder="Enter Employee ID" name="EID" required>
+                 <input type="number" placeholder="Enter Employee ID" name="E_ID" required>
                </div>
                <div class="input-icons">
-                 <label for="umail"><b>Email</b></label>
+                 <label for="email"><b>Email</b></label>
                  
-                 <input type="email" placeholder="Enter Email" name="umail" required>
+                 <input type="email" placeholder="Enter Email" name="email" required>
                </div>
                </div>
              
