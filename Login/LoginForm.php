@@ -34,7 +34,7 @@
             <div class="container login">
               <button type="submit">LOGIN</button>
               <div class="forgotpass"></div>
-              <span class="psw"><a href="ForgotPass.html">Forgot password?</a></span>
+              <span class="psw"><a href="ForgotPass.php">Forgot password?</a></span>
             </div>
             </div>
           </form>
