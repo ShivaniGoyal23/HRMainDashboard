@@ -22,7 +22,7 @@
           header('Location: employeehome.php');  
         }  
         else{  
-          echo '<script>alert("Welcome to Geeks for Geeks")</script>';
+          echo '<script>alert("Please Check username or Password")</script>';
         }    
   } 
 ?>
