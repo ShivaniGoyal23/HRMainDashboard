@@ -22,7 +22,7 @@
           header('Location: employeehome.php');  
         }  
         else{  
-          alert("Please check your Username or Password");  
+            echo "<h1> Login failed. Invalid username or password.</h1>";  
         }    
   } 
 ?>
