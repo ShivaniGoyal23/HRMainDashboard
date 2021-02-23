@@ -1,4 +1,3 @@
-<<<<<<< HEAD:LoginForm.php
 <?php    
     if(array_key_exists('select', $_POST)) { 
       select(); 
@@ -13,7 +12,6 @@
         $password = stripcslashes($password);  
         $email = mysqli_real_escape_string($con, $email);  
         $password = mysqli_real_escape_string($con, $password);  
-      
         $sql = "select * from employee where email = '$email' and password = '$password'";  
         $result = mysqli_query($con, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
