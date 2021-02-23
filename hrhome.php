@@ -159,10 +159,7 @@
     </div>
     </div>
 
-
-
-    
-    <div class="tab-pane fade" id="departmentlist" role="tabpanel" aria-labelledby="showall-tab">
+ <div class="tab-pane fade" id="departmentlist" role="tabpanel" aria-labelledby="showall-tab">
       
       <nav class="navbar navbar-light search" style="background-color: #D6E9F7;">
         <form class="form-inline">
