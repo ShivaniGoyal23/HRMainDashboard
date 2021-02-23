@@ -1,27 +1,3 @@
-<?php
-    session_start();
-    include('config.php');
-    if (isset($_POST['hrdashboard'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $query = $connection->prepare("SELECT * FROM employee WHERE email=:email");
-        $query->bindParam("email", $email, PDO::PARAM_STR);
-        $query->execute();
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        if (!$result) {
-            echo '<p class="error">Username password combination is wrong!</p>';
-        } else {
-            if (password_verify($password, $result['password'])) {
-                $_SESSION['E_ID'] = $result['E_ID'];
-                echo '<p class="success">Congratulations, you are logged in!</p>';
-            } else {
-                echo '<p class="error">Username password combination is wrong!</p>';
-            }
-        }
-    }
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,12 +33,41 @@
             </div>
           
             <div class="container login">
-              <button type="submit">LOGIN</button>
+              <button type="submit" name="select">LOGIN</button>
               <div class="forgotpass"></div>
               <span class="psw"><a href="ForgotPass.php">Forgot password?</a></span>
             </div>
             </div>
           </form>
+
+   <?php    
+    if(array_key_exists('select', $_POST)) { 
+      select(); 
+  }   
+  function select(){
+    include('config.php');  
+    $email = $_POST['email'];  
+    $password = $_POST['password'];  
+      
+        //to prevent from mysqli injection  
+        $email = stripcslashes($email);  
+        $password = stripcslashes($password);  
+        $email = mysqli_real_escape_string($con, $email);  
+        $password = mysqli_real_escape_string($con, $password);  
+      
+        $sql = "select * from employee where email = '$email' and password = '$password'";  
+        $result = mysqli_query($con, $sql);  
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+        $count = mysqli_num_rows($result);  
+          
+        if($count == 1){  
+            echo "<h1><center> Login successful </center></h1>";  
+        }  
+        else{  
+            echo "<h1> Login failed. Invalid username or password.</h1>";  
+        }    
+  } 
+?>
      </div>
   </div>  
 </body>
