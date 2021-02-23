@@ -20,7 +20,7 @@
           </div>
           <ul class="nav navbar-nav navbar-right">
             <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span> Employee Name</a></li>
-            <li><a class="logout" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+            <li><a class="logout" href="LoginForm.php"><i class="fa fa-sign-out"></i> Logout</a></li>
           </ul>
         </div>
       </nav>   
