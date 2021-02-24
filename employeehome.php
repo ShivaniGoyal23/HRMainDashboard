@@ -184,7 +184,7 @@
     </div>
   </div>
   </section>
-<hr>
+<hr style="height:1px;border:none;color:#333;background-color:#333;"/>
 
 <div class="form-row">
     <div class="form-group col-md-4">
