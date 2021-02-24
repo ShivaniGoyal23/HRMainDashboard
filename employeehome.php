@@ -253,12 +253,70 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+  </div>
 
 
-
-          </div>
     
-          <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="showall-tab">RST</div>
+    <div class="tab-pane fade mx-3" id="form" role="tabpanel" aria-labelledby="showall-tab">
+<form action="">
+    <div class="form-row">
+  <div class="form-group col-md-4">
+  <label for="Dept">Select Your Department</label>
+      <select id="Dept" class="form-control">
+        <option selected>Choose...</option>
+        <option>Sales</option>
+        <option>Finance</option>
+        <option>Marketing</option>
+        <option>Operations</option>
+      </select>
+  </div>
+  <div class="form-group col-md-4">
+  <label for="Emp">Employee Name:</label>
+  </div>
+  </div> <!--form row closing-->
+
+<div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="PeerQ1">Does the employee promote and spread positive influence in the workplace environment?</label>
+      <input type="text" class="form-control" id="PeerQ1" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="PeerQ2">Does the employee seem disappointed or tired with the day to day work?</label>
+      <input type="text" class="form-control" id="PeerQ2"required>
+    </div>
+  </div>
+  <hr style="height:1px;border:none;color:#333;background-color:#333;"/>
+
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="PeerQ3">How is the person’s work productivity in relation to other colleagues? Are there any points where he can improve?</label>
+      <input type="text" class="form-control" id="PeerQ3" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="PeerQ4">Is the employee always ready to learn and develop new skills?</label>
+      <input type="text" class="form-control" id="PeerQ4"required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        I agree to the Terms and Conditions 
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+    
+    </div> <!--tab closing-->
+
+
+
         </div>
       </div>
       
