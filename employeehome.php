@@ -110,8 +110,152 @@
       
           <div class="tab-pane fade" id="departmentdet" role="tabpanel" aria-labelledby="showall-tab">PQR</div>
     
-          <div class="tab-pane fade" id="selfeval" role="tabpanel" aria-labelledby="showall-tab">
-            Self Evaluation Form
+          <div class="tab-pane fade mx-3" id="selfeval" role="tabpanel" aria-labelledby="showall-tab">
+
+         <section> 
+          <form>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="WorkLife">Work Life Balance</label>
+      <select id="WorkLife" class="form-control" required>
+      <option selected>Choose...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+    <label for="Valued">Feeling Valued for Contributions</label>
+      <select id="Valued" class="form-control"required>
+      <option value="none">Choose..</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </div>
+
+
+<div class="form-row">
+  <div class="form-group col-md-4">
+  <label for="Growth">Individual Career Growth Opportunity</label>
+      <select id="Growth" class="form-control">
+        <option selected>Choose...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+  </div>
+  <div class="form-group col-md-4">
+  <label for="Support">Support from Team Members</label>
+      <select id="Support" class="form-control" required>
+        <option selected>Choose...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+  </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputQ1">How do you find the current work environment?</label>
+      <input type="text" class="form-control" id="inputQ1"required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputQ2">Do you feel that your opinions are heard and valued by your superior?</label>
+      <input type="text" class="form-control" id="inputQ2" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputQ3">What are the few things you value the most about the organization?</label>
+      <input type="text" class="form-control" id="inputQ3"required>
+    </div>
+  </div>
+  </section>
+<hr>
+
+<div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="QOW">Rate your Quality of Work</label>
+      <select id="QOW" class="form-control" required>
+      <option selected>Choose...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+    <label for="Concentration">Work Concentration</label>
+      <select id="Concentration" class="form-control"required>
+      <option value="none">Choose..</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-4">
+  <label for="Performance">Overall Performance</label>
+      <select id="Performance" class="form-control">
+        <option selected>Choose...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+  </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputPQ1">Describe your efforts at workplace as an employee</label>
+      <input type="text" class="form-control" id="inputPQ1"required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputPQ2">How well can you manage your time with deadlines in the organisation?</label>
+      <input type="text" class="form-control" id="inputPQ2" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputPQ3">Do you feel you can perform better than your current efforts and if so, how?</label>
+      <input type="text" class="form-control" id="inputPQ3"required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        I agree to the Terms and Conditions 
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
           </div>
     
           <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="showall-tab">RST</div>
