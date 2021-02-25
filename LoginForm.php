@@ -56,8 +56,7 @@
               <i class="fa fa-lock icon" style="font-size:32px"></i>
               <input type="password" placeholder="Enter Password" name="password" id="myInput" required>
             </div>
-            <input type="checkbox" onclick="myFunction()">Show Password 
-            </div>
+            <input type="checkbox" onclick="myFunction()">Show Password </div>
           
             <div class="container login">
               <button type="submit" name="select">LOGIN</button>

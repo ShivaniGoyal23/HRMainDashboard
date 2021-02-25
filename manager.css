@@ -40,6 +40,8 @@ a.logout:hover {
 
 .personaldet{
     background: #FFFFFF;
-    
     padding:50px 0px 50px 0px;
+}
+.empdetails{
+    margin:10px 0px 0px 0px;
 }

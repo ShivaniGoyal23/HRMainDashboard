@@ -42,22 +42,107 @@
         <div class="tab-content" id="v-pills-tabContent">
           
           <div class="tab-pane active" id="pdetails" role="tabpanel" aria-labelledby="showall-tab">
-            <h1 class="text-center">WELCOME</h1></div>
+            <h1 class="text-center">WELCOME</h1>
+            <div class="row empdetails">
+              <div class="col-md-8">
+                <table style="width:100%">
+                  <tr>
+                    <td>Full Name</td>
+                    <td>Dhananjay Gupta</td> 
+                  </tr>
+                  <tr>
+                    <td>Department</td>
+                    <td>Finance</td>
+                  </tr>
+                  <tr>
+                    <td>Email ID</td>
+                    <td>zeeenetstudio@yahoo.co.in</td>
+                  </tr>
+
+                  <tr>
+                    <td>Phone number</td>
+                    <td>9856012167</td>
+                  </tr>
+                  <tr>
+                    <td>Manager ID</td>
+                    <td>AXO1018</td>
+                  </tr>
+                  <tr>
+                    <td>Residential Address</td>
+                    <td>A-556, First floor, Surya Society, Delhi Gate, New Delhi-110006</td>
+                  </tr>
+                  <tr>
+                    <td>Birth Date</td>
+                    <td>23rd Febraury 1999</td>
+                  </tr>
+                  <tr>
+                    <td>Blood Group</td>
+                    <td>B+</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-md-4">
+                <img class="rounded mx-auto d-block pb-3" src="User.png" alt="#">
+              </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            </div><!-- tabclosing-->
+
+
+
+
       
       
           <div class="tab-pane fade" id="deptdetails" role="tabpanel" aria-labelledby="showall-tab">PQR</div>
     
+
+
           <div class="tab-pane fade mx-3" id="peer" role="tabpanel" aria-labelledby="showall-tab">
           <form>
+          <div class="form-group col-md-4">
+  <label for="Emp">Employee Name:</label>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="QOW">Performance wrt the Expectations</label>
+      <select id="QOW" class="form-control" required>
+      <option selected>Choose...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+    <label for="Concentration">Performance wrt other Employees</label>
+      <select id="Concentration" class="form-control"required>
+      <option value="none">Choose..</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </div>
+
   <div class="form-row">
     <div class="form-group col-md-8">
       <label for="inputQ1">How satisfied are you with work done by the employee?</label>
       <input type="text" class="form-control" id="inputQ1"required>
     </div>
   </div>
+
   <div class="form-row">
     <div class="form-group col-md-8">
-      <label for="inputQ2">How can he improve his performance in the coming period?</label>
+      <label for="inputQ2">How can his/her performance be improved in the coming period?</label>
       <input type="text" class="form-control" id="inputQ2" required>
     </div>
   </div>
