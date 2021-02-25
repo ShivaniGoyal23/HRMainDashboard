@@ -138,7 +138,11 @@
         <input type="text" id="TLead" name="TLead"> <br>
         <label for="Desg">Designation:</label>
         <input type="text" id="Desg" name="Desg"> <br>
-        <label for="email">Email ID:</label>
+        <label for="email">Official Email ID:</label>
+        <input type="email" id="Oemail" name="Oemail"> <br>
+        <label for="email">Official Email ID Password:</label>
+        <input type="password" id="psw" name="psw"> <br>
+        <label for="email">Personal Email ID:</label>
         <input type="email" id="email" name="email"> <br>
         <label for="Phone">Phone Number:</label>
         <input type="text" id="Phone" name="Phone"> <br>

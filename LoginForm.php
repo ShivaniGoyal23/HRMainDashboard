@@ -54,8 +54,9 @@
             <div class="input-icons">
               <label for="password"><b>Password</b></label>
               <i class="fa fa-lock icon" style="font-size:32px"></i>
-              <input type="password" placeholder="Enter Password" name="password" required>
+              <input type="password" placeholder="Enter Password" name="password" id="myInput" required>
             </div>
+            <input type="checkbox" onclick="myFunction()">Show Password 
             </div>
           
             <div class="container login">
@@ -67,5 +68,18 @@
           </form>
      </div>
   </div>  
+
+  <script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+
 </body>
 </html>
