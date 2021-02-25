@@ -29,20 +29,31 @@
 <div class="row">
 <div class="col-lg-3 personaldet">
 <img class="rounded mx-auto d-block" src="User.png" alt="#">
-<div class="list-group pt-5">
-    <a href="#" class="list-group-item list-group-item-action">Department and Current Team</a>
-    <a href="#" class="list-group-item list-group-item-action">Personal Details</a>
-    <a href="#" class="list-group-item list-group-item-action">Peer Feedback</a>
-  </div>
+<ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#pdetails" role="tab" aria-controls="showall" aria-selected="true">Personal Details</a></li>
+  <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#deptdetails" role="tab" aria-controls="showall" aria-selected="true">Department and Current Team</a></li>
+  <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#peer" role="tab" aria-controls="showall" aria-selected="true">Peer Feedback</a></li>
+</ul>
 </div>
 
 <div class="col-lg-8 ml-auto personaldet">
-<h1 class="text-center">WELCOME</h1>
+  <div class="tab-content" id="v-pills-tabContent">
+    
+    <div class="tab-pane active" id="pdetails" role="tabpanel" aria-labelledby="showall-tab"><h1 class="text-center">WELCOME</h1></div>
+    <div class="tab-pane fade" id="deptdetails" role="tabpanel" aria-labelledby="showall-tab">Abc</div>
+    <div class="tab-pane fade" id="peer" role="tabpanel" aria-labelledby="showall-tab">XYZ
+    
+    
+    
+    
+    
+    </div><!--tabpane-->
+
+  </div><!--tabcontent-->
 </div>
 
-
-</div>
-      </div>
+</div><!--row-->
+      </div><!--container-->
 
 </body>
 </html>
