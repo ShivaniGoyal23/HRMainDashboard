@@ -5,8 +5,8 @@
     $password ="";  
     $db_name = "hrdashboard";  
       
-    $con = mysqli_connect($host, $user, $password, $db_name);  
-    if(mysqli_connect_errno()) {  
+    $mysqli = new mysqli($host, $user, $password, $db_name);  
+    if($mysqli->connect_error) {  
         die("Failed to connect". mysqli_connect_error());  
     }  
  /*   else{

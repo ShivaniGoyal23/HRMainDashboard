@@ -48,14 +48,28 @@
               <div class="col-md-8">
                 <table style="width:100%">
                  
-                  <tr>
+ <!-- PHP CODE TO FETCH DATA FROM ROWS--> 
+            <?php   // LOOP TILL END OF DATA  
+             include('config.php'); 
+             // SQL query to select data from database 
+          
+             $result = mysqli_query($mysqli,"select * from personaldetails"); 
+
+                while($rows=mysqli_fetch_array($result)) 
+                { 
+             ?> 
+            
+                <!--FETCHING DATA FROM EACH  
+                    ROW OF EVERY COLUMN--> 
+
+                    <tr>
                     <td>Full Name</td>
-                    <td>Shivani</td>
+                    <td><?php echo $rows['name'];?></td>
                     
                   </tr>
                   <tr>
                     <td>Department</td>
-                    <td>Finance</td>
+                    <td><?php echo $rows['department'];?></td>
                     
                   </tr>
                   <tr>
@@ -65,23 +79,23 @@
                   </tr>
                   <tr>
                     <td>Designation</td>
-                    <td>Intern</td>
+                    <td><?php echo $rows['designation'];?></td>
                   </tr>
                   <tr>
                     <td>Email ID</td>
-                    <td>zeeenetstudio@yahoo.co.in</td>
+                    <td><?php echo $rows['email'];?></td>
                   </tr>
                   <tr>
                     <td>Phone number</td>
-                    <td>9856012167</td>
+                    <td><?php echo $rows['phonenumber'];?></td>
                   </tr>
                   <tr>
                     <td>Employee ID</td>
-                    <td>AXO1018</td>
+                    <td><?php echo $rows['E_ID'];?></td>
                   </tr>
                   <tr>
                     <td>Residential Address</td>
-                    <td>A-556, First floor, Surya Society, Ajmal Khan Road, Delhi Gate, New Delhi-110006</td>
+                    <td><?php echo $rows['address'];?></td>
                   </tr>
                   <tr>
                     <td>Alternate Contact</td>
@@ -89,16 +103,22 @@
                   </tr>
                   <tr>
                     <td>Birth Date</td>
-                    <td>23rd Febraury 1999</td>
+                    <td><?php echo $rows['birthdate'];?></td>
                   </tr>
                   <tr>
                     <td>Blood Group</td>
-                    <td>AB-</td>
+                    <td><?php echo $rows['bloodgroup'];?></td>
                   </tr>
                   <tr>
                     <td>Emergency Contact</td>
+                    <td><?php echo $rows['emercont'];?></td>
                     </tr>
+            
+            <?php 
+                } 
+             ?> 
                 </table>
+              <?php  $mysqli->close(); ?>
               </div>
               <div class="col-md-4">
                 <img class="rounded mx-auto d-block pb-3" src="User.png" alt="#">
