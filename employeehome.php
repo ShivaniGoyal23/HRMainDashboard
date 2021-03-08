@@ -53,7 +53,7 @@
              include('config.php'); 
              // SQL query to select data from database 
           
-             $result = mysqli_query($mysqli,"select * from personaldetails"); 
+             $result = mysqli_query($mysqli,"select * from login"); 
 
                 while($rows=mysqli_fetch_array($result)) 
                 { 

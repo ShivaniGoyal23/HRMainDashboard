@@ -47,10 +47,18 @@
             <div class="row empdetails">
               <div class="col-md-8">
                 <table style="width:100%">
-                 
+                <?php   // LOOP TILL END OF DATA  
+             include('config.php'); 
+             // SQL query to select data from database 
+          
+             $result = mysqli_query($mysqli,"select * from login"); 
+
+                while($rows=mysqli_fetch_array($result)) 
+                { 
+             ?> 
                   <tr>
                     <td>Full Name</td>
-                    <td>Shivani</td>
+                    <td><?php echo $rows['name'];?></td>
                     
                   </tr>
                   <tr>
@@ -60,23 +68,23 @@
                   </tr>
                   <tr>
                     <td>Designation</td>
-                    <td>HR Employee</td>
+                    <td><?php echo $rows['designation'];?></td>
                   </tr>
                   <tr>
                     <td>Email ID</td>
-                    <td>zeeenetstudio@yahoo.co.in</td>
+                    <td><?php echo $rows['email'];?></td>
                   </tr>
                   <tr>
                     <td>Phone number</td>
-                    <td>9856012167</td>
+                    <td><?php echo $rows['phonenumber'];?></td>
                   </tr>
                   <tr>
-                    <td>Employee ID</td>
-                    <td>AXO1018</td>
+                    <td>Admin ID</td>
+                    <td><?php echo $rows['E_ID'];?></td>
                   </tr>
                   <tr>
                     <td>Residential Address</td>
-                    <td>A-556, First floor, Surya Society, Ajmal Khan Road, Delhi Gate, New Delhi-110006</td>
+                    <td><?php echo $rows['address'];?></td>
                   </tr>
                   <tr>
                     <td>Alternate Contact</td>
@@ -84,16 +92,23 @@
                   </tr>
                   <tr>
                     <td>Birth Date</td>
-                    <td>23rd Febraury 1999</td>
+                    <td><?php echo $rows['birthdate'];?></td>
                   </tr>
                   <tr>
                     <td>Blood Group</td>
-                    <td>AB-</td>
+                    <td><?php echo $rows['bloodgroup'];?></td>
                   </tr>
                   <tr>
                     <td>Emergency Contact</td>
+                    <td><?php echo $rows['emercont'];?></td>
                     </tr>
+
+              <?php 
+                } 
+             ?> 
                 </table>
+              <?php  $mysqli->close(); ?>
+
               </div>
               <div class="col-md-4">
                 <img class="rounded mx-auto d-block pb-3" src="HR.png" alt="#">
@@ -107,6 +122,7 @@
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-sm" type="submit" style="background-color:  #2F8ED4;">SEARCH</button>
+
           </form>
           <button class="btn btn-sm" type="submit" style="background-color:  #2F8ED4;">Sort By</button>
         </nav>
@@ -117,16 +133,64 @@
 
     <div class="tab-pane fade" id="employee" role="tabpanel" aria-labelledby="showall-tab">
       <h1 class="text-center">Add an Employee</h1>
+
+      <!-- For storing values into the database-->
+      <?php    
+include('config.php'); 
+if(isset($_POST['add'])){
+
+  $E_ID=$_POST['EID'];
+  $name=$_POST['fname'];
+  $email=$_POST['Oemail'];
+  $password=$_POST['psw'];
+  $role=$_POST['account'];
+  $department=$_POST['Department'];
+  $designation=$_POST['Desg'];
+  $phonenumber=$_POST['Phone'];
+  $address=$_POST['RAdd'];
+  $bloodgroup=$_POST['BloodGrp'];
+  $emercont=$_POST['Emergency'];
+  $birthdate=$_POST['BDate'];
+  $teamleader=$_POST['TLead'];
+ 
+  //To insert values into the database from PHP
+  $insertquery="insert into login(E_ID,name,email,password,role,department,designation,phonenumber,address,bloodgroup,emercont,birthdate,teamleader) 
+  values('$E_ID','$name','$email','$password','$role','$department','$designation','$phonenumber','$address','$bloodgroup','$emercont','$birthdate','$teamleader')";
+
+  $res=mysqli_query($sqli,$insertquery);
+  
+  //To check if data is inserted or not
+  if($res){
+    ?>
+    <script>
+    alert("Data successfully inserted")
+    </script>
+    <?php
+  }else{
+    ?>
+    <script>
+    alert("Data not inserted")
+    </script>
+    <?php
+  }
+
+}  
+?>
       <div class="containerx">
-      <form>
-        <div class="account-type"> <a class="hr1">Account type</a>
-          <input type="radio" value="none" id="radioOne" name="account" checked/>
+      <form action=" " method="post" target="_blank">
+
+        <div class="account-type">
+         <a class="hr1">Account type</a>
+          <input type="radio" value="e" id="radioOne" name="account" checked/>
           <label for="radioOne" class="radio">Employee</label>
-          <input type="radio" value="none" id="radioTwo" name="account" />
+
+          <input type="radio" value="m" id="radioTwo" name="account"/>
           <label for="radioTwo" class="radio">Manager</label>
         </div> 
+
         <label for="fname">Full name:</label>
         <input type="text" id="fname" name="fname"><br>
+
         <label for="Department">Choose Department:</label>
     <select id="Department" name="Department">
     <option value="Sales">Sales</option>
@@ -134,31 +198,41 @@
     <option value="Marketing">Marketing</option>
     <option value="Operations">Operations</option>
     </select> <br>
+
         <label for="TLead">Team Leader:</label>
         <input type="text" id="TLead" name="TLead"> <br>
+
         <label for="Desg">Designation:</label>
         <input type="text" id="Desg" name="Desg"> <br>
+
         <label for="email">Official Email ID:</label>
         <input type="email" id="Oemail" name="Oemail"> <br>
+
         <label for="email">Official Email ID Password:</label>
         <input type="password" id="psw" name="psw"> <br>
-        <label for="email">Personal Email ID:</label>
-        <input type="email" id="email" name="email"> <br>
+
         <label for="Phone">Phone Number:</label>
         <input type="text" id="Phone" name="Phone"> <br>
+
         <label for="EID">Employee ID:</label>
         <input type="text" id="EID" name="EID"> <br>
+
         <label for="RAdd">Residential Address:</label>
         <input type="text" style="height: 60px;" id="RAdd" name="RAdd"> <br>
-        <label for="AltContact">Alternate Contact:</label>
-        <input type="text" id="AltContact" name="AltContact"> <br>
+
+      <!--  <label for="AltContact">Alternate Contact:</label>
+        <input type="text" id="AltContact" name="AltContact"> <br>-->
+
         <label for="BDate">Birth Date:</label>
         <input type="date" id="BDate" name="BDate"> <br>
+
         <label for="BloodGrp">Blood Group:</label>
         <input type="text" id="BloodGrp" name="BloodGrp"> <br>
+
         <label for="Emergency">Emergency Contact:</label>
         <input type="text" style="height: 60px;"  id="Emergency" name="Emergency"> <br>
-        <input type="submit" value="Submit" class="submit">
+
+        <button type="submit" name="add">Add User</button>
       </form>
     </div>
     </div>
