@@ -7,9 +7,6 @@
       
     $mysqli = new mysqli($host, $user, $password, $db_name);  
     if($mysqli->connect_error) {  
-        die("Failed to connect". mysqli_connect_error());  
+        die("Failed to connect". mysql_connect_error());  
     }  
- /*   else{
-        echo "Registration Successful";
-    } */
 ?>

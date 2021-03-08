@@ -1,19 +1,44 @@
 <?php    
-    if(array_key_exists('select', $_POST)) { 
-      select(); 
-  }   
-  function select(){
-    include('config.php');  
+include('config.php'); 
+    if(isset($_POST['select'])) 
+    {  
     $email = $_POST['email'];  
     $password = $_POST['password'];  
-      
+    $emp="employee";
+    $man="manager";
+    $adm="admin";
         //to prevent from mysqli injection  
-        $email = stripcslashes($email);  
-        $password = stripcslashes($password);  
-        $email = mysqli_real_escape_string($mysqli, $email);  
-        $password = mysqli_real_escape_string($mysqli, $password);  
-        $sql = "select * from login where email = '$email' and password = '$password'";  
-        $result = mysqli_query($mysqli, $sql);  
+        $sql_emp = "select * from login where email = '$email' and password = '$password' and role='$emp'";  
+        $run_emp=mysqli_query($mysqli,$sql_emp);
+        $row = mysqli_fetch_array($run_emp, MYSQLI_ASSOC);
+        $empcount = mysqli_num_rows($run_emp);
+
+        $sql_man = "select * from login where email = '$email' and password = '$password' and role='$man'";  
+        $run_man=mysqli_query($mysqli,$sql_man);
+        $mancount = mysqli_num_rows($run_man);
+
+        $sql_adm = "select * from login where email = '$email' and password = '$password' and role='$adm'";  
+        $run_adm=mysqli_query($mysqli,$sql_adm);
+        $admcount = mysqli_num_rows($run_adm);
+        
+      if($empcount==1)
+      {
+        header('Location: employeehome.php');
+      }
+      elseif($mancount==1)
+      {
+        header('Location: managerhome.php'); 
+      }
+      elseif($admcount==1)
+      {
+        header('Location: hrhome.php');
+      }
+      else
+      {
+        echo '<script>alert("Please Check username or Password")</script>';
+      }
+
+        /**$result = mysqli_query($mysqli, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result);  
           
@@ -22,7 +47,7 @@
         }  
         else{  
           echo '<script>alert("Please Check username or Password")</script>';
-        }    
+        }    **/
   } 
 ?>
 <!DOCTYPE html>
@@ -39,7 +64,7 @@
 <body>
   <div class="wrapper">
      <div class="form">
-        <form action="" method="post">
+        <form action="LoginForm.php" method="post">
             <div class="imgcontainer">
               <img src="UserAvtar.svg" alt="Avatar" class="avatar">
               <div><h1>WELCOME</h1></div>
