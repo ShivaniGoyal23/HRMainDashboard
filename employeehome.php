@@ -19,7 +19,13 @@
             <img class="logo" src="logo.png" alt="Manageasy">
           </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span> Employee Name</a></li>
+            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span> 
+            <?php    
+              include('config.php');
+              session_start();
+              echo $_SESSION['name'];         
+                ?>            </a></li>
+
             <li><a class="logout" href="LoginForm.php"><i class="fa fa-sign-out"></i> Logout</a></li>
           </ul>
         </div>
@@ -52,7 +58,6 @@
             <?php   // LOOP TILL END OF DATA  
              include('config.php'); 
              // SQL query to select data from database 
-          
              $result = mysqli_query($mysqli,"select * from login"); 
 
                 while($rows=mysqli_fetch_array($result)) 

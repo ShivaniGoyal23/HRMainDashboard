@@ -1,5 +1,6 @@
 <?php    
-include('config.php'); 
+include('config.php');
+session_start();
     if(isset($_POST['select'])) 
     {  
     $email = $_POST['email'];  
@@ -11,43 +12,40 @@ include('config.php');
         $sql_emp = "select * from login where email = '$email' and password = '$password' and role='$emp'";  
         $run_emp=mysqli_query($mysqli,$sql_emp);
         $row = mysqli_fetch_array($run_emp, MYSQLI_ASSOC);
+        $name=$row['name'];
         $empcount = mysqli_num_rows($run_emp);
 
         $sql_man = "select * from login where email = '$email' and password = '$password' and role='$man'";  
         $run_man=mysqli_query($mysqli,$sql_man);
+        $row = mysqli_fetch_array($run_man, MYSQLI_ASSOC);
+        $name=$row['name'];
         $mancount = mysqli_num_rows($run_man);
 
         $sql_adm = "select * from login where email = '$email' and password = '$password' and role='$adm'";  
         $run_adm=mysqli_query($mysqli,$sql_adm);
+        $row = mysqli_fetch_array($run_adm, MYSQLI_ASSOC);
+        $name=$row['name'];
         $admcount = mysqli_num_rows($run_adm);
         
       if($empcount==1)
       {
+        $_SESSION['name']=$name;
         header('Location: employeehome.php');
       }
       elseif($mancount==1)
       {
+        $_SESSION['name']=$name;
         header('Location: managerhome.php'); 
       }
       elseif($admcount==1)
       {
+        $_SESSION['name']=$name;
         header('Location: hrhome.php');
       }
       else
       {
         echo '<script>alert("Please Check username or Password")</script>';
       }
-
-        /**$result = mysqli_query($mysqli, $sql);  
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
-        $count = mysqli_num_rows($result);  
-          
-        if($count == 1){  
-          header('Location: employeehome.php');  
-        }  
-        else{  
-          echo '<script>alert("Please Check username or Password")</script>';
-        }    **/
   } 
 ?>
 <!DOCTYPE html>
