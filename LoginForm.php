@@ -9,37 +9,30 @@ session_start();
     $man="manager";
     $adm="admin";
         //to prevent from mysqli injection  
-        $sql_emp = "select * from login where email = '$email' and password = '$password' and role='$emp'";  
+        $sql_emp = "select * from login where email = '$email' and password = '$password' ";  
         $run_emp=mysqli_query($mysqli,$sql_emp);
         $row = mysqli_fetch_array($run_emp, MYSQLI_ASSOC);
+        var_dump($row);
         $name=$row['name'];
         $empcount = mysqli_num_rows($run_emp);
-
-        $sql_man = "select * from login where email = '$email' and password = '$password' and role='$man'";  
-        $run_man=mysqli_query($mysqli,$sql_man);
-        $row = mysqli_fetch_array($run_man, MYSQLI_ASSOC);
-        $name=$row['name'];
-        $mancount = mysqli_num_rows($run_man);
-
-        $sql_adm = "select * from login where email = '$email' and password = '$password' and role='$adm'";  
-        $run_adm=mysqli_query($mysqli,$sql_adm);
-        $row = mysqli_fetch_array($run_adm, MYSQLI_ASSOC);
-        $name=$row['name'];
-        $admcount = mysqli_num_rows($run_adm);
         
-      if($empcount==1)
+      if($row['role']=='employee')
       {
         $_SESSION['name']=$name;
+        $_SESSION['email']=$email;
+        var_dump($_SESSION);
         header('Location: employeehome.php');
       }
-      elseif($mancount==1)
+      elseif($row['role']=='manager')
       {
         $_SESSION['name']=$name;
+        $_SESSION['email']=$email;
         header('Location: managerhome.php'); 
       }
-      elseif($admcount==1)
+      elseif($row['role']=='admin')
       {
         $_SESSION['name']=$name;
+        $_SESSION['email']=$email;
         header('Location: hrhome.php');
       }
       else

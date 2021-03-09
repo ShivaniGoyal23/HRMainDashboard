@@ -30,9 +30,17 @@
 <div class="col-lg-3 personaldet">
 <img class="rounded mx-auto d-block" src="HR.png" alt="#">
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#details" role="tab" aria-controls="showall" aria-selected="true">Personal Details</a></li>
+  <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#details" role="tab" aria-controls="showall" aria-selected="true">Personal Details</a></li>
   <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#search" role="tab" aria-controls="showall" aria-selected="true">Search</a></li>
-  <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#employee" role="tab" aria-controls="showall" aria-selected="true">Add an Employee</a></li>
+  <?php
+
+ if(isset($_GET['status'])){
+   echo '<li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#employee" role="tab" aria-controls="showall" aria-selected="true">Add an Employee</a></li>';
+ }
+ else{
+  echo '<li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#employee" role="tab" aria-controls="showall" aria-selected="true">Add an Employee</a></li>';
+}
+?>
   <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#departmentlist" role="tab" aria-controls="showall" aria-selected="true">Department List</a></li>
   <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#forms" role="tab" aria-controls="showall" aria-selected="true">Forms</a></li>
 </ul>
@@ -41,17 +49,22 @@
 
 <div class="col-lg-8 ml-auto personaldet">
   <div class="tab-content" id="v-pills-tabContent">
-    
-    <div class="tab-pane active" id="details" role="tabpanel" aria-labelledby="showall-tab">
+    <?php 
+  if(!isset($_GET['status'])){
+    echo'<div class="tab-pane active" id="details" role="tabpanel" aria-labelledby="showall-tab">';
+  }
+    ?>
+
       <h1 class="text-center">WELCOME</h1>
             <div class="row empdetails">
               <div class="col-md-8">
                 <table style="width:100%">
                 <?php   // LOOP TILL END OF DATA  
              include('config.php'); 
+             session_start();
              // SQL query to select data from database 
-          
-             $result = mysqli_query($mysqli,"select * from login"); 
+             $email=$_SESSION['email'];
+             $result = mysqli_query($mysqli,"select * from login where email = '$email'"); 
 
                 while($rows=mysqli_fetch_array($result)) 
                 { 
@@ -130,61 +143,35 @@
 
     </div>
 
-
-    <div class="tab-pane fade" id="employee" role="tabpanel" aria-labelledby="showall-tab">
-      <h1 class="text-center">Add an Employee</h1>
-
-      <!-- For storing values into the database-->
-      <?php    
-include('config.php'); 
-if(isset($_POST['add'])){
-
-  $E_ID=$_POST['EID'];
-  $name=$_POST['fname'];
-  $email=$_POST['Oemail'];
-  $password=$_POST['psw'];
-  $role=$_POST['account'];
-  $department=$_POST['Department'];
-  $designation=$_POST['Desg'];
-  $phonenumber=$_POST['Phone'];
-  $address=$_POST['RAdd'];
-  $bloodgroup=$_POST['BloodGrp'];
-  $emercont=$_POST['Emergency'];
-  $birthdate=$_POST['BDate'];
-  $teamleader=$_POST['TLead'];
- 
-  //To insert values into the database from PHP
-  $insertquery="insert into login(E_ID,name,email,password,role,department,designation,phonenumber,address,bloodgroup,emercont,birthdate,teamleader) 
-  values('$E_ID','$name','$email','$password','$role','$department','$designation','$phonenumber','$address','$bloodgroup','$emercont','$birthdate','$teamleader')";
-
-  $res=mysqli_query($sqli,$insertquery);
-  
-  //To check if data is inserted or not
-  if($res){
-    ?>
-    <script>
-    alert("Data successfully inserted")
-    </script>
-    <?php
-  }else{
-    ?>
-    <script>
-    alert("Data not inserted")
-    </script>
-    <?php
-  }
-
-}  
+<?php
+  if(isset($_GET['status'])){
+   echo ' <div class="tab-pane active" id="employee" role="tabpanel" aria-labelledby="showall-tab">';
+ }
+ else{
+  echo ' <div class="tab-pane" id="employee" role="tabpanel" aria-labelledby="showall-tab">';
+}
 ?>
+      <h1 class="text-center">Add an Employee</h1>
+      <?php
+
+if(isset($_GET['status']) && $_GET['status'] == 'success'){
+  echo "Employee added successfully";
+}
+
+if(isset($_GET['status']) && $_GET['status'] == 'error'){
+ echo " User not added";
+}
+?>
+  
       <div class="containerx">
-      <form action=" " method="post" target="_blank">
+      <form action="addemployee.php" method="post">
 
         <div class="account-type">
          <a class="hr1">Account type</a>
-          <input type="radio" value="e" id="radioOne" name="account" checked/>
+          <input type="radio" value="employee" id="radioOne" name="account" checked/>
           <label for="radioOne" class="radio">Employee</label>
 
-          <input type="radio" value="m" id="radioTwo" name="account"/>
+          <input type="radio" value="manager" id="radioTwo" name="account"/>
           <label for="radioTwo" class="radio">Manager</label>
         </div> 
 
