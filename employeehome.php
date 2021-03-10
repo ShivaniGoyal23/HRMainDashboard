@@ -41,102 +41,16 @@ include('config.php');
       <div class="col-lg-3 personaldet">
       <img class="rounded mx-auto d-block pb-3" src="User.png" alt="#">
       <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#personaldet" role="tab" aria-controls="showall" aria-selected="true">Personal Details</a></li>
-        <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#departmentdet" role="tab" aria-controls="showall" aria-selected="true">Department Details</a></li>
-        <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#selfeval" role="tab" aria-controls="showall" aria-selected="true">Self Evaluation Form</a></li>
-        <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#form" role="tab" aria-controls="showall" aria-selected="true">Peer Feedback</a></li>
+      <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
+      <li class="nav-item"><a href="deptdet.php">Department and Current Team</a></li>
+      <li class="nav-item"><a href="selfeval.php" >Self Evaluation Form</a></li>
+     <li class="nav-item"><a href="otheremp.php">Peer Feedback</a></li>
       </ul>
       </div>
       
       
       <div class="col-lg-8 ml-auto personaldet">
-        <div class="tab-content" id="v-pills-tabContent">
-          
-          <div class="tab-pane active" id="personaldet" role="tabpanel" aria-labelledby="showall-tab">
-            <h1 class="text-center">WELCOME</h1>
-            <div class="row empdetails">
-              <div class="col-md-8">
-                <table style="width:100%">
-                 
- <!-- PHP CODE TO FETCH DATA FROM ROWS--> 
-            <?php   // LOOP TILL END OF DATA  
-              $email=$_SESSION['email'];
-             // SQL query to select data from database 
-             $result = mysqli_query($mysqli,"select * from login where email = '$email'"); 
 
-                while($rows=mysqli_fetch_array($result)) 
-                { 
-             ?> 
-            
-                <!--FETCHING DATA FROM EACH  
-                    ROW OF EVERY COLUMN--> 
-
-                    <tr>
-                    <td>Full Name</td>
-                    <td><?php echo $rows['name'];?></td>
-                    
-                  </tr>
-                  <tr>
-                    <td>Department</td>
-                    <td><?php echo $rows['department'];?></td>
-                    
-                  </tr>
-                  <tr>
-                    <td>Team Leader</td>
-                    <td>Jack</td>
-                    
-                  </tr>
-                  <tr>
-                    <td>Designation</td>
-                    <td><?php echo $rows['designation'];?></td>
-                  </tr>
-                  <tr>
-                    <td>Email ID</td>
-                    <td><?php echo $rows['email'];?></td>
-                  </tr>
-                  <tr>
-                    <td>Phone number</td>
-                    <td><?php echo $rows['phonenumber'];?></td>
-                  </tr>
-                  <tr>
-                    <td>Employee ID</td>
-                    <td><?php echo $rows['E_ID'];?></td>
-                  </tr>
-                  <tr>
-                    <td>Residential Address</td>
-                    <td><?php echo $rows['address'];?></td>
-                  </tr>
-                  <tr>
-                    <td>Alternate Contact</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>Birth Date</td>
-                    <td><?php echo $rows['birthdate'];?></td>
-                  </tr>
-                  <tr>
-                    <td>Blood Group</td>
-                    <td><?php echo $rows['bloodgroup'];?></td>
-                  </tr>
-                  <tr>
-                    <td>Emergency Contact</td>
-                    <td><?php echo $rows['emercont'];?></td>
-                    </tr>
-            <?php 
-                } 
-             ?> 
-                </table>
-  
-              </div>
-              <div class="col-md-4">
-                <img class="rounded mx-auto d-block pb-3" src="User.png" alt="#">
-              </div>
-            </div>
-
-          </div>
-      
-      
-          <div class="tab-pane fade" id="departmentdet" role="tabpanel" aria-labelledby="showall-tab">PQR</div>
     
           <div class="tab-pane fade mx-3" id="selfeval" role="tabpanel" aria-labelledby="showall-tab">
 

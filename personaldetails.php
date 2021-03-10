@@ -1,6 +1,6 @@
 <?php
- include('config.php'); 
-             session_start();
+session_start();  
+include('config.php');
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,9 @@
             <img class="logo" src="logo.png" alt="Manageasy">
           </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span>Welcome HR</a></li>
+            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span><?php  
+              echo $_SESSION['name'];    
+                ?> </a></li>
             <li><a class="logout" href="LoginForm.php"><i class="fa fa-sign-out"></i> Logout</a></li>
           </ul>
         </div>
@@ -36,10 +38,28 @@
 <img class="rounded mx-auto d-block" src="HR.png" alt="#">
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
   <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#details" role="tab" aria-controls="showall" aria-selected="true">Personal Details</a></li>
-  <li class="nav-item"><a href="search.php" role="tab" aria-controls="showall" aria-selected="true">Search</a></li>
+  <?php
+if($_SESSION['role']=='admin')
+{
+  ?>
+  <li class="nav-item"><a href="search.php">Search</a></li>
    <li class="nav-item"><a href="addemployee.php" role="tab">Add an Employee</a></li>
-  <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#departmentlist" role="tab" aria-controls="showall" aria-selected="true">Department List</a></li>
-  <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#forms" role="tab" aria-controls="showall" aria-selected="true">Forms</a></li>
+  <li class="nav-item"><a  href="deptlist.php">Department List</a></li>
+  <li class="nav-item"><a  href="hrform.php">Forms</a></li>
+<?php } 
+if($_SESSION['role']=='manager')
+{
+    ?>
+<li class="nav-item"><a  href="deptdet.php" >Department and Current Team</a></li>
+  <li class="nav-item"><a href="peer.php">Peer Feedback</a></li>
+<?php }
+if($_SESSION['role']=='employee')
+{ ?>
+
+<li class="nav-item"><a href="deptdet.php">Department Details</a></li>
+<li class="nav-item"><a href="selfeval.php" >Self Evaluation Form</a></li>
+     <li class="nav-item"><a href="otheremp.php">Peer Feedback</a></li>
+<?php } ?>
 </ul>
 </div>
 
@@ -52,9 +72,10 @@
             <div class="row empdetails">
               <div class="col-md-8">
                 <table style="width:100%">
-                <?php   // LOOP TILL END OF DATA  
+                <?php   // LOOP TILL END OF DATA
              // SQL query to select data from database 
              $email=$_SESSION['email'];
+             $role=$_SESSION['role'];
              $result = mysqli_query($mysqli,"select * from login where email = '$email'"); 
 
                 while($rows=mysqli_fetch_array($result)) 
@@ -65,9 +86,15 @@
                     <td><?php echo $rows['name'];?></td>
                     
                   </tr>
+                
                   <tr>
+                      <?php
+                  if($_SESSION['role']=='employee' || $_SESSION['role']=='admin')
+                  {
+                   ?>
                     <td>Team Leader</td>
-                    <td>Jack</td>
+                    <td><?php echo $rows['teamleader'];?></td>
+            <?php } ?>
                     
                   </tr>
                   <tr>
@@ -83,7 +110,7 @@
                     <td><?php echo $rows['phonenumber'];?></td>
                   </tr>
                   <tr>
-                    <td>Admin ID</td>
+                    <td>ID</td>
                     <td><?php echo $rows['E_ID'];?></td>
                   </tr>
                   <tr>

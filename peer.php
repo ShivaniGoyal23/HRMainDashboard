@@ -40,16 +40,15 @@ include('config.php');
       <img class="rounded mx-auto d-block pb-3" src="User.png" alt="#">
       <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
-  <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#deptdetails" role="tab" aria-controls="showall" aria-selected="true">Department and Current Team</a></li>
-  <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#peer" role="tab" aria-controls="showall" aria-selected="true">Peer Feedback</a></li>
+  <li class="nav-item"><a href="deptdet.php">Department and Current Team</a></li>
+  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#peer" role="tab" aria-controls="showall" aria-selected="true">Peer Feedback</a></li>
 </ul>
       </div>
-      
-          <div class="tab-pane fade" id="deptdetails" role="tabpanel" aria-labelledby="showall-tab">PQR</div>
     
-
-
-          <div class="tab-pane fade mx-3" id="peer" role="tabpanel" aria-labelledby="showall-tab">
+    
+ 
+      <div class="col-lg-8 ml-auto personaldet">
+          <div class="tab-pane active mx-3" id="peer" role="tabpanel" aria-labelledby="showall-tab">
           <form>
           <div class="form-group col-md-4">
   <label for="Emp">Employee Name:</label>
