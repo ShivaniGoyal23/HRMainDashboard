@@ -122,12 +122,11 @@ include('config.php');
                     <td>Emergency Contact</td>
                     <td><?php echo $rows['emercont'];?></td>
                     </tr>
-            
             <?php 
                 } 
              ?> 
                 </table>
-              <?php  $mysqli->close(); ?>
+  
               </div>
               <div class="col-md-4">
                 <img class="rounded mx-auto d-block pb-3" src="User.png" alt="#">

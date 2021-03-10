@@ -1,3 +1,9 @@
+<?php
+session_start();  
+include('config.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +25,9 @@
             <img class="logo" src="logo.png" alt="Manageasy">
           </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span>Manager Name</a></li>
+            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span> <?php  
+              echo $_SESSION['name'];    
+                ?></a></li>
             <li><a class="logout" href="LoginForm.php"><i class="fa fa-sign-out"></i> Logout</a></li>
           </ul>
         </div>
@@ -46,39 +54,50 @@
             <div class="row empdetails">
               <div class="col-md-8">
                 <table style="width:100%">
+                <?php   // LOOP TILL END OF DATA  
+              $email=$_SESSION['email'];
+             // SQL query to select data from database 
+             $result = mysqli_query($mysqli,"select * from login where email = '$email'"); 
+
+                while($rows=mysqli_fetch_array($result)) 
+                { 
+             ?> 
                   <tr>
                     <td>Full Name</td>
-                    <td>Dhananjay Gupta</td> 
+                    <td><?php echo $rows['name'];?></td> 
                   </tr>
                   <tr>
                     <td>Department</td>
-                    <td>Finance</td>
+                    <td><?php echo $rows['department'];?></td>
                   </tr>
                   <tr>
                     <td>Email ID</td>
-                    <td>zeeenetstudio@yahoo.co.in</td>
+                    <td><?php echo $rows['email'];?></td>
                   </tr>
 
                   <tr>
                     <td>Phone number</td>
-                    <td>9856012167</td>
+                    <td><?php echo $rows['phonenumber'];?></td>
                   </tr>
                   <tr>
                     <td>Manager ID</td>
-                    <td>AXO1018</td>
+                    <td><?php echo $rows['E_ID'];?></td>
                   </tr>
                   <tr>
                     <td>Residential Address</td>
-                    <td>A-556, First floor, Surya Society, Delhi Gate, New Delhi-110006</td>
+                    <td><?php echo $rows['address'];?></td>
                   </tr>
                   <tr>
                     <td>Birth Date</td>
-                    <td>23rd Febraury 1999</td>
+                    <td><?php echo $rows['birthdate'];?></td>
                   </tr>
                   <tr>
                     <td>Blood Group</td>
-                    <td>B+</td>
+                    <td><?php echo $rows['bloodgroup'];?></td>
                   </tr>
+                  <?php 
+                } 
+             ?> 
                 </table>
               </div>
               <div class="col-md-4">

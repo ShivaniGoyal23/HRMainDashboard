@@ -20,7 +20,6 @@ session_start();
       {
         $_SESSION['name']=$name;
         $_SESSION['email']=$email;
-        var_dump($_SESSION);
         header('Location: employeehome.php');
       }
       elseif($row['role']=='manager')

@@ -36,13 +36,31 @@
 <div class="col-lg-3 personaldet">
 <img class="rounded mx-auto d-block" src="HR.png" alt="#">
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
-  <li class="nav-item"><a href="search.php">Search</a></li>
-   <li class="nav-item"><a href="addemployee.php">Add an Employee</a></li>
-   <li class="nav-item"><a href="deptlist.php">Department List</a></li>
+<li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
+  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#search" role="tab" aria-controls="showall" aria-selected="true">Search</a></li>
+  <li class="nav-item"><a href="addemployee.php">Add an Employee</a></li>
+  <li class="nav-item"><a href="deptlist.php">Department List</a></li>
   <li class="nav-item"><a href="hrform.php">Forms</a></li>
 </ul>
 </div>
+
+
+<div class="col-lg-8 ml-auto personaldet">
+  
+
+    <div class="tab-pane active" id="search" role="tabpanel" aria-labelledby="showall-tab">
+      <h1 class="text-center">WELCOME</h1>
+      <nav class="navbar navbar-light search" style="background-color: #D6E9F7;">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-sm" type="submit" style="background-color:  #2F8ED4;">SEARCH</button>
+
+          </form>
+          <button class="btn btn-sm" type="submit" style="background-color:  #2F8ED4;">Sort By</button>
+        </nav>
+        
+
+    </div>
 
   </div>
       </div>
