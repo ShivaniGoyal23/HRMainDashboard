@@ -80,15 +80,7 @@ if(isset($_POST['add'])){
   <div class="tab-pane active" id="employee" role="tabpanel" aria-labelledby="showall-tab">
 
       <h1 class="text-center">Add an Employee</h1>
-      <?php
-if(isset($_GET['status']) && $_GET['status'] == 'success'){
-  echo '<script>alert("User Added Successfully")</script>';
-}
-
-if(isset($_GET['status']) && $_GET['status'] == 'error'){
- echo '<script>alert("User Not Added")</script>';
-}
-?>
+   
       <div class="containerx">
       <form action="addemployee.php" method="post">
 
@@ -145,7 +137,7 @@ if(isset($_GET['status']) && $_GET['status'] == 'error'){
         <label for="Emergency">Emergency Contact:</label>
         <input type="text" style="height: 60px;"  id="Emergency" name="Emergency" required> <br>
 
-        <button type="submit" name="add">Add User</button>
+        <button type="submit" name="add" onclick="ResponseAlert()">Add User</button>
       </form>
     </div>
     </div>
@@ -155,6 +147,21 @@ if(isset($_GET['status']) && $_GET['status'] == 'error'){
       </div>
 
 </body>
+
+<script>
+function ResponseAlert() {
+
+  if(isset($_GET['status']) && $_GET['status'] == 'success'){
+  echo '<script>alert("User Added Successfully")</script>';
+}
+
+if(isset($_GET['status']) && $_GET['status'] == 'error'){
+ echo '<script>alert("User Not Added")</script>';
+}
+
+}
+
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.js" integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.js" integrity="sha256-a4eB5VWh1N88HZWO7jqpWhAGyb0vr8pTQ8KiXNClbYg=" crossorigin="anonymous"></script>
