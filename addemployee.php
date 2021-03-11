@@ -67,38 +67,30 @@ if(isset($_POST['add'])){
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
   <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
   <li class="nav-item"><a href="search.php">Search</a></li>
-  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#employee" role="tab" aria-controls="showall" aria-selected="true">Add an Employee</a></li>
+  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#employee" role="tab" aria-controls="showall" aria-selected="true">Add Users</a></li>
   <li class="nav-item"><a href="deptlist.php" >Department List</a></li>
   <li class="nav-item"><a href="hrform.php">Forms</a></li>
 </ul>
 </div>
 
 
-
 <div class="col-lg-8 ml-auto personaldet">
   <div class="tab-pane active" id="employee" role="tabpanel" aria-labelledby="showall-tab">
 
-      <h1 class="text-center">Add an Employee</h1>
-<<<<<<< HEAD
-     
-      <script>
-
-     
-      <?php
-
-if(isset($_GET['status']) && $_GET['status'] == 'success'){
-  echo '<script>alert("User Added Successfully")</script>';
-}
-
-if(isset($_GET['status']) && $_GET['status'] == 'error'){
- echo '<script>alert("User Not Added")</script>';
-}
-?> 
-=======
+      <h1 class="text-center">Add Users</h1>
    
->>>>>>> 3b491c6b23c1b2c338a7a8fc2b8c8ae5ff2512ac
       <div class="containerx">
-      <form action="addemployee.php" method="post">
+      <form action=" " method="post">
+    
+      <?php  if(isset($_GET['status']) && $_GET['status'] == 'success')
+ {
+   echo'<h2 style="color:green;">User Added Successfully!</h2>';
+}
+ 
+  if(isset($_GET['status']) && $_GET['status'] == 'error'){
+    echo '<h2 style="color:tomato;">User Not Added! Please Enter Valid Information</h2>';
+  }
+  ?>
 
         <div class="account-type">
          <a class="hr1">Account type</a>
@@ -153,8 +145,12 @@ if(isset($_GET['status']) && $_GET['status'] == 'error'){
         <label for="Emergency">Emergency Contact:</label>
         <input type="text" style="height: 60px;"  id="Emergency" name="Emergency" required> <br>
 
-        <button type="submit" name="add" onclick="ResponseAlert()">Add User</button>
+        <button type="submit" name="add">Add User</button>
       </form>
+
+     
+
+  
     </div>
     </div>
 
@@ -164,20 +160,7 @@ if(isset($_GET['status']) && $_GET['status'] == 'error'){
 
 </body>
 
-<script>
-function ResponseAlert() {
-
-  if(isset($_GET['status']) && $_GET['status'] == 'success'){
-  echo '<script>alert("User Added Successfully")</script>';
-}
-
-if(isset($_GET['status']) && $_GET['status'] == 'error'){
- echo '<script>alert("User Not Added")</script>';
-}
-
-}
-
-</script>
+ 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.js" integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.js" integrity="sha256-a4eB5VWh1N88HZWO7jqpWhAGyb0vr8pTQ8KiXNClbYg=" crossorigin="anonymous"></script>

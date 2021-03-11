@@ -38,7 +38,7 @@
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
   <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#search" role="tab" aria-controls="showall" aria-selected="true">Search</a></li>
-  <li class="nav-item"><a href="addemployee.php">Add an Employee</a></li>
+  <li class="nav-item"><a href="addemployee.php">Add Users</a></li>
   <li class="nav-item"><a href="deptlist.php">Department List</a></li>
   <li class="nav-item"><a href="hrform.php">Forms</a></li>
 </ul>
