@@ -63,7 +63,6 @@ if($_SESSION['role']=='employee')
 </ul>
 </div>
 
-
 <div class="col-lg-8 ml-auto personaldet">
   <div class="tab-content" id="v-pills-tabContent">
 <div class="tab-pane active" id="details" role="tabpanel" aria-labelledby="showall-tab">

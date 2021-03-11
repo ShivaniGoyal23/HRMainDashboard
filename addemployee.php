@@ -30,7 +30,6 @@ if(isset($_POST['add'])){
   else{
   header('location:hrhome.php?status=error');
   }
-  
 }
 ?>
 
@@ -80,7 +79,12 @@ if(isset($_POST['add'])){
   <div class="tab-pane active" id="employee" role="tabpanel" aria-labelledby="showall-tab">
 
       <h1 class="text-center">Add an Employee</h1>
+     
+      <script>
+
+     
       <?php
+
 if(isset($_GET['status']) && $_GET['status'] == 'success'){
   echo '<script>alert("User Added Successfully")</script>';
 }
@@ -88,7 +92,7 @@ if(isset($_GET['status']) && $_GET['status'] == 'success'){
 if(isset($_GET['status']) && $_GET['status'] == 'error'){
  echo '<script>alert("User Not Added")</script>';
 }
-?>
+?> 
       <div class="containerx">
       <form action="addemployee.php" method="post">
 
