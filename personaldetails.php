@@ -37,7 +37,7 @@ include('config.php');
 <div class="col-lg-3 personaldet">
 <img class="rounded mx-auto d-block" src="HR.png" alt="#">
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <li class="nav-item"><a class="nav-link" id="showall-tab" data-toggle="pill" href="#details" role="tab" aria-controls="showall" aria-selected="true">Personal Details</a></li>
+  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#details" role="tab" aria-controls="showall" aria-selected="true">Personal Details</a></li>
   <?php
 if($_SESSION['role']=='admin')
 {
@@ -50,13 +50,11 @@ if($_SESSION['role']=='admin')
 if($_SESSION['role']=='manager')
 {
     ?>
-<li class="nav-item"><a  href="deptdet.php" >Department and Current Team</a></li>
   <li class="nav-item"><a href="peer.php">Peer Feedback</a></li>
 <?php }
 if($_SESSION['role']=='employee')
 { ?>
 
-<li class="nav-item"><a href="deptdet.php">Department Details</a></li>
 <li class="nav-item"><a href="selfeval.php" >Self Evaluation Form</a></li>
      <li class="nav-item"><a href="otheremp.php">Peer Feedback</a></li>
 <?php } ?>
