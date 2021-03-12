@@ -47,23 +47,37 @@ include('config.php');
       </ul>
       </div>
       
-      
+     
       <div class="col-lg-8 ml-auto personaldet">
 <div class="tab-pane active mx-3" id="form" role="tabpanel" aria-labelledby="showall-tab">
 <form action="">
 <div class="form-row">
 <div class="form-group col-md-4">
-<label for="Dept">Select Your Department</label>
+<label for="Dept">Employee Name</label>
+<!--<input type="hidden" name="form_filler" value="<?php echo $_SESSION["E_ID"];?>">-->
 <select id="Dept" class="form-control">
 <option value=" " selected disabled hidden>Choose...</option>
-<option>Sales</option>
-<option>Finance</option>
-<option>Marketing</option>
-<option>Operations</option>
+<?php 
+      $sql_dept = "select department from login where email = '".$_SESSION['email']."'";  
+      $run_dept=mysqli_query($mysqli,$sql_dept);
+      $row = mysqli_fetch_array($run_dept, MYSQLI_ASSOC);
+      $department=$row['department'];
+      
+      $sql_employee = "select * from login where department = '".$department."'"; 
+      $result = mysqli_query($mysqli, $sql_employee);
+
+      if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+          if($row["E_ID"] != $_SESSION["E_ID"])
+          echo "<option value='".$row["E_ID"]."'>".$row["name"]."</option>";
+        }
+      } else {
+        echo "0 results";
+      }
+
+  ?>
 </select>
-</div>
-<div class="form-group col-md-4">
-<label for="Emp">Employee Name:</label>
 </div>
 </div> <!--form row closing-->
 

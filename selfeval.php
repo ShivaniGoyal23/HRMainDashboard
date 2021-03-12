@@ -1,10 +1,30 @@
 <?php
 session_start();  
 include('config.php');
-
  
+$sql_time = "select timestamps from selfeval where E_ID='".$_SESSION['E_ID']."'";  
+$run_time=mysqli_query($mysqli,$sql_time);
+$row = mysqli_fetch_array($run_time, MYSQLI_ASSOC);
+
+
+if(!empty($row['timestamps'])) {
+
+  $timestamps=$row['timestamps'];
+  $newdate = gmdate("Y-m-d", strtotime("+1 month", strtotime($timestamps)));
+  $date_now = date("Y-m-d"); // this format is string comparable
+
+if ($date_now > $newdate) {
+    echo 'greater than';
+}else{
+  //Dont show the form, current date is less than the final date
+    echo 'Your Response has already been recorded.';
+    die();
+}
+}
+
 if(isset($_POST['add'])){
  
+  
   $E_ID=$_SESSION['E_ID']; 
   $selfeval1=$_POST['selfeval1'];
   $selfeval2=$_POST['selfeval2'];
@@ -21,17 +41,25 @@ if(isset($_POST['add'])){
   $selfevalp6=$_POST['selfevalp6'];
  
   //To insert values into the database from PHP
-  $insertquery="insert into selfeval(E_ID,selfeval1,selfeval2,selfeval3,selfeval4,selfeval5,selfeval6,selfeval7,selfevalp1,selfevalp2,selfevalp3,selfevalp4,selfevalp5,selfevalp6) 
-  values('$E_ID','$selfeval1','$selfeval2','$selfeval3','$selfeval4','$selfeval5','$selfeval6','$selfeval7','$selfevalp1','$selfevalp2','$selfevalp3','$selfevalp4','$selfevalp5','$selfevalp6')";
+  echo $insertquery="insert into selfeval(E_ID,selfeval1,selfeval2,selfeval3,selfeval4,selfeval5,selfeval6,selfeval7,selfevalp1,selfevalp2,selfevalp3,selfevalp4,selfevalp5,selfevalp6) 
+  values('$E_ID','$selfeval1','$selfeval2','$selfeval3','$selfeval4','$selfeval5','$selfeval6','$selfeval7','$selfevalp1','$selfevalp2','$selfevalp3','$selfevalp4','$selfevalp5','$selfevalp6')
+  ON DUPLICATE KEY UPDATE selfeval1='$selfeval1',
+  selfeval2='$selfeval2',selfeval3='$selfeval3',selfeval4='$selfeval4',
+  selfeval5='$selfeval5',selfeval6='$selfeval6',selfeval7='$selfeval7',
+  selfevalp1='$selfevalp1',selfevalp2='$selfevalp2'
+  ,selfevalp3='$selfevalp3',selfevalp4='$selfevalp4',selfevalp5='$selfevalp5',selfevalp6='$selfevalp6'";
 
   $res=mysqli_query($mysqli,$insertquery);
   
+  echo mysqli_error($mysqli);
   //To check if data is inserted or not
   if($res){
    header('location:employeehome.php?status=success');
   }
   else{
+   die($res); 
   header('location:employeehome.php?status=error');
+  
   }
 }
 
@@ -119,7 +147,7 @@ if(isset($_POST['add'])){
 <div class="form-group col-md-4">
 <label for="Growth">Individual Career Growth Opportunity</label>
 <select id="Growth" class="form-control" name="selfeval3" required>
-<option value=" " selected disabled hidden>Choose...</option>
+<option value="" selected disabled hidden>Choose...</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -130,7 +158,7 @@ if(isset($_POST['add'])){
 <div class="form-group col-md-4">
 <label for="Support">Support from Team Members</label>
 <select id="Support" class="form-control" name="selfeval4" required>
-<option value=" " selected disabled hidden>Choose...</option>
+<option value="" selected disabled hidden>Choose...</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -143,7 +171,7 @@ if(isset($_POST['add'])){
 <div class="form-row">
 <div class="form-group col-md-8">
 <label for="inputQ1">How do you find the current work environment?</label>
-<input type="text" class="form-control" id="inputQ1" name="selfevl5" required>
+<input type="text" class="form-control" id="inputQ1" name="selfeval5" required>
 </div>
 </div>
 <div class="form-row">
@@ -165,7 +193,7 @@ if(isset($_POST['add'])){
 <div class="form-group col-md-4">
 <label for="QOW">Rate your Quality of Work</label>
 <select id="QOW" class="form-control" name="selfevalp1" required>
-<option value=" " selected disabled hidden>Choose...</option>
+<option value="" selected disabled hidden>Choose...</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -176,7 +204,7 @@ if(isset($_POST['add'])){
 <div class="form-group col-md-4">
 <label for="Concentration">Work Concentration</label>
 <select id="Concentration" class="form-control" name="selfevalp2" required>
-<option value=" " selected disabled hidden>Choose...</option>
+<option value="" selected disabled hidden>Choose...</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -188,7 +216,7 @@ if(isset($_POST['add'])){
 <div class="form-group col-md-4">
 <label for="Performance">Overall Performance</label>
 <select id="Performance" class="form-control" name="selfevalp3" required>
-<option value=" " selected disabled hidden>Choose...</option>
+<option value="" selected disabled hidden>Choose...</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>

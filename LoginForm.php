@@ -15,10 +15,12 @@ session_start();
         var_dump($row);
         $name=$row['name'];
         $E_ID=$row['E_ID'];
+        $role=$row['role'];
         $empcount = mysqli_num_rows($run_emp);
         
       if($row['role']=='employee')
       {
+        $_SESSION['role']=$role;
         $_SESSION['name']=$name;
         $_SESSION['email']=$email;
         $_SESSION['E_ID']=$E_ID;
@@ -26,13 +28,15 @@ session_start();
       }
       elseif($row['role']=='manager')
       {
+        $_SESSION['role']=$role;
         $_SESSION['name']=$name;
         $_SESSION['email']=$email;
         $_SESSION['E_ID']=$E_ID;
         header('Location: managerhome.php'); 
       }
       elseif($row['role']=='admin')
-      {
+      { 
+        $_SESSION['role']=$role;
         $_SESSION['name']=$name;
         $_SESSION['email']=$email;
         $_SESSION['E_ID']=$E_ID;
