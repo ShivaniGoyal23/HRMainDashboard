@@ -72,7 +72,6 @@ if($_SESSION['role']=='employee')
                 <?php   // LOOP TILL END OF DATA
              // SQL query to select data from database 
              $email=$_SESSION['email'];
-             $role=$_SESSION['role'];
              $result = mysqli_query($mysqli,"select * from login where email = '$email'"); 
 
                 while($rows=mysqli_fetch_array($result)) 

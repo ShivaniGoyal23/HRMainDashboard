@@ -1,6 +1,41 @@
 <?php
 session_start();  
 include('config.php');
+
+ 
+if(isset($_POST['add'])){
+ 
+  $E_ID=$_SESSION['E_ID']; 
+  $selfeval1=$_POST['selfeval1'];
+  $selfeval2=$_POST['selfeval2'];
+  $selfeval3=$_POST['selfeval3'];
+  $selfeval4=$_POST['selfeval4'];
+  $selfeval5=$_POST['selfeval5'];
+  $selfeval6=$_POST['selfeval6'];
+  $selfeval7=$_POST['selfeval7'];
+  $selfevalp1=$_POST['selfevalp1'];
+  $selfevalp2=$_POST['selfevalp2'];
+  $selfevalp3=$_POST['selfevalp3'];
+  $selfevalp4=$_POST['selfevalp4'];
+  $selfevalp5=$_POST['selfevalp5'];
+  $selfevalp6=$_POST['selfevalp6'];
+ 
+  //To insert values into the database from PHP
+  $insertquery="insert into selfeval(E_ID,selfeval1,selfeval2,selfeval3,selfeval4,selfeval5,selfeval6,selfeval7,selfevalp1,selfevalp2,selfevalp3,selfevalp4,selfevalp5,selfevalp6) 
+  values('$E_ID','$selfeval1','$selfeval2','$selfeval3','$selfeval4','$selfeval5','$selfeval6','$selfeval7','$selfevalp1','$selfevalp2','$selfevalp3','$selfevalp4','$selfevalp5','$selfevalp6')";
+
+  $res=mysqli_query($mysqli,$insertquery);
+  
+  //To check if data is inserted or not
+  if($res){
+   header('location:employeehome.php?status=success');
+  }
+  else{
+  header('location:employeehome.php?status=error');
+  }
+}
+
+
 ?>
 
 
@@ -53,7 +88,7 @@ include('config.php');
 <div class="tab-pane active mx-3" id="selfeval" role="tabpanel" aria-labelledby="showall-tab">
 
 <section> 
-<form>
+<form action="" method="post">
 <div class="form-row">
 <div class="form-group col-md-4">
 <label for="WorkLife">Work Life Balance</label>
@@ -191,7 +226,7 @@ I agree to the Terms and Conditions
 </label>
 </div>
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" name="add" class="btn btn-primary">Submit</button>
 </form>
 </div>
 
