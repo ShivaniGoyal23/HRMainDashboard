@@ -50,7 +50,7 @@ if($_SESSION['role']=='admin')
 if($_SESSION['role']=='manager')
 {
     ?>
-  <li class="nav-item"><a href="peer.php">Peer Feedback</a></li>
+  <li class="nav-item"><a href="managertoemployee.php">Employee Feedback</a></li>
 <?php }
 if($_SESSION['role']=='employee')
 { ?>

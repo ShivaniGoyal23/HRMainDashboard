@@ -40,7 +40,7 @@ include('config.php');
       <img class="rounded mx-auto d-block pb-3" src="User.png" alt="#">
       <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
-  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#peer" role="tab" aria-controls="showall" aria-selected="true">Peer Feedback</a></li>
+  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#peer" role="tab" aria-controls="showall" aria-selected="true">Employee Feedback</a></li>
 </ul>
       </div>
     
