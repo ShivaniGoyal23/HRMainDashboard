@@ -50,6 +50,27 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
+  <style>
+  
+  /* Footer styling */
+  footer{
+    display: block;
+    text-align: center;
+    margin: 10px;
+    padding: 2px;
+    background-color: rgb( 177, 202, 213 );
+    color: rgb(8, 8, 8);
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  input.largerCheckbox { 
+
+            width: 15px; 
+            height: 15px;
+            vertical-align: -3px; 
+        } 
+    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,6 +81,7 @@ session_start();
     <title>Login Form</title>
 </head>
 <body>
+
   <div class="wrapper">
      <div class="form">
         <form action="LoginForm.php" method="post">
@@ -79,7 +101,7 @@ session_start();
               <i class="fa fa-lock icon" style="font-size:32px"></i>
               <input type="password" placeholder="Enter Password" name="password" id="myInput" required>
             </div>
-            <input type="checkbox" onclick="myFunction()">Show Password </div>
+            <input type="checkbox" class="largerCheckbox" onclick="myFunction()">Show Password </div>
           
             <div class="container login">
               <button type="submit" name="select">LOGIN</button>
@@ -90,7 +112,13 @@ session_start();
           </form>
      </div>
   </div>  
+  
+  <footer>
+  <p>For support, contact <a href="mailto:xyz@manageasy.com">xyz@manageasy.com</a><br>
+  Created and Managed by Shivani, Dhruv & Dhananjay</p>
+</footer>
 
+<!-- Show password function -->
   <script>
 function myFunction() {
   var x = document.getElementById("myInput");
