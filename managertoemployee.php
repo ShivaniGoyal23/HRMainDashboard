@@ -1,6 +1,70 @@
 <?php
 session_start();  
 include('config.php');
+
+
+if(isset($_POST['add'])){
+ 
+  
+  $E_ID=$_POST['E_ID'];
+ 
+  $sql_time = "select man_timestamps from employeefeedback where E_ID='$E_ID'";  
+  $run_time=mysqli_query($mysqli,$sql_time);
+  $row = mysqli_fetch_array($run_time, MYSQLI_ASSOC);
+
+
+
+  if(!empty($row['man_timestamps'])) {
+  
+    $timestamps=$row['man_timestamps'];
+    $newdate = gmdate("Y-m-d", strtotime("+1 month", strtotime($timestamps)));
+    $date_now = date("Y-m-d"); // this format is string comparable
+  
+  if ($date_now > $newdate) {
+        // Form is open and ready to be filled since month is passed
+  }else{
+    //Dont show the form, current date is less than the final date
+      echo 'Your Response was already recorded for the particular Employee!'; 
+      //Insert a back button 
+      die();
+  }
+  }
+
+
+
+  $M_ID=$_SESSION['E_ID']; 
+  $inputq1=$_POST['inputq1'];
+  $inputq2=$_POST['inputq2'];
+  $inputq3=$_POST['inputq3'];
+  $inputq4=$_POST['inputq4'];
+  
+  
+ 
+  //To insert values into the database from PHP
+ $insertquery="insert into employeefeedback(M_ID,inputq1,inputq2,inputq3,inputq4,E_ID) 
+  values('$M_ID','$inputq1','$inputq2','$inputq3','$inputq4','$E_ID')
+  ON DUPLICATE KEY UPDATE M_ID='$M_ID',inputq1='$inputq1',inputq2='$inputq2',inputq3='$inputq3',inputq4='$inputq4'";
+
+  $res=mysqli_query($mysqli,$insertquery);
+  
+  echo mysqli_error($mysqli);
+  //To check if data is inserted or not
+  if($res){
+   header('location:managerhome.php?status=success');
+  }
+  else{
+   die($res); 
+  header('location:managerhome.php?status=error');
+  
+  }
+  
+
+}
+
+
+
+
+
 ?>
 
 
@@ -48,15 +112,41 @@ include('config.php');
  
       <div class="col-lg-8 ml-auto personaldet">
           <div class="tab-pane active mx-3" id="peer" role="tabpanel" aria-labelledby="showall-tab">
-          <form>
+          <form action="" method="post">
           <div class="form-group col-md-4">
   <label for="Emp">Employee Name:</label>
+  <select id="Dept" class="form-control" name="E_ID">
+<option value=" " selected disabled hidden>Choose...</option>
+<?php 
+      $sql_dept = "select department from login where email = '".$_SESSION['email']."'";  
+      $run_dept=mysqli_query($mysqli,$sql_dept);
+      $row = mysqli_fetch_array($run_dept, MYSQLI_ASSOC);
+      $department=$row['department'];
+
+      
+      $sql_employee = "select * from login where department = '".$department."' and role='employee'"; 
+      $result = mysqli_query($mysqli, $sql_employee);
+
+      if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+          if($row["E_ID"] != $_SESSION["E_ID"])
+          echo "<option value='".$row["E_ID"]."'>".$row["name"]."</option>";
+        }
+      } else {
+        echo "0 results";
+      }
+
+  ?>
+</select>
+
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="QOW">Performance wrt the Expectations</label>
-      <select id="QOW" class="form-control" required>
-      <option selected>Choose...</option>
+      <select id="QOW" class="form-control" name="inputq1" required>
+      <option value="" selected>Choose...</option>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -66,8 +156,8 @@ include('config.php');
     </div>
     <div class="form-group col-md-4">
     <label for="Concentration">Performance wrt other Employees</label>
-      <select id="Concentration" class="form-control"required>
-      <option value="none">Choose..</option>
+      <select id="Concentration" class="form-control" name="inputq2" required>
+      <option value="" selected>Choose..</option>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -80,14 +170,14 @@ include('config.php');
   <div class="form-row">
     <div class="form-group col-md-8">
       <label for="inputQ1">How satisfied are you with work done by the employee?</label>
-      <input type="text" class="form-control" id="inputQ1"required>
+      <input type="text" class="form-control" id="inputQ1"name="inputq3" required>
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-group col-md-8">
       <label for="inputQ2">How can his/her performance be improved in the coming period?</label>
-      <input type="text" class="form-control" id="inputQ2" required>
+      <input type="text" class="form-control" id="inputQ2" name="inputq4" required>
     </div>
   </div>
 
@@ -99,7 +189,7 @@ include('config.php');
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" name="add" class="btn btn-primary">Submit</button>
 </form>
   </div>
 

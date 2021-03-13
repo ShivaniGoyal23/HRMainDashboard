@@ -14,10 +14,11 @@ if(!empty($row['timestamps'])) {
   $date_now = date("Y-m-d"); // this format is string comparable
 
 if ($date_now > $newdate) {
-    echo 'greater than';
+    // Form is open and ready to be filled since month is passed
 }else{
   //Dont show the form, current date is less than the final date
     echo 'Your Response has already been recorded.';
+    //Insert a back button
     die();
 }
 }
@@ -41,7 +42,7 @@ if(isset($_POST['add'])){
   $selfevalp6=$_POST['selfevalp6'];
  
   //To insert values into the database from PHP
-  echo $insertquery="insert into selfeval(E_ID,selfeval1,selfeval2,selfeval3,selfeval4,selfeval5,selfeval6,selfeval7,selfevalp1,selfevalp2,selfevalp3,selfevalp4,selfevalp5,selfevalp6) 
+ $insertquery="insert into selfeval(E_ID,selfeval1,selfeval2,selfeval3,selfeval4,selfeval5,selfeval6,selfeval7,selfevalp1,selfevalp2,selfevalp3,selfevalp4,selfevalp5,selfevalp6) 
   values('$E_ID','$selfeval1','$selfeval2','$selfeval3','$selfeval4','$selfeval5','$selfeval6','$selfeval7','$selfevalp1','$selfevalp2','$selfevalp3','$selfevalp4','$selfevalp5','$selfevalp6')
   ON DUPLICATE KEY UPDATE selfeval1='$selfeval1',
   selfeval2='$selfeval2',selfeval3='$selfeval3',selfeval4='$selfeval4',
@@ -121,7 +122,7 @@ if(isset($_POST['add'])){
 <div class="form-group col-md-4">
 <label for="WorkLife">Work Life Balance</label>
 <select id="WorkLife" class="form-control" name="selfeval1" required>
-<option value=" " selected disabled hidden>Choose...</option>
+<option value="" selected disabled hidden>Choose...</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -132,7 +133,7 @@ if(isset($_POST['add'])){
 <div class="form-group col-md-4">
 <label for="Valued">Feeling Valued for Contributions</label>
 <select id="Valued" class="form-control" name="selfeval2" required>
-<option value=" " selected disabled hidden>Choose...</option>
+<option value="" selected disabled hidden>Choose...</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>

@@ -58,12 +58,13 @@ include('config.php');
 <select id="Dept" class="form-control">
 <option value=" " selected disabled hidden>Choose...</option>
 <?php 
-      $sql_dept = "select department from login where email = '".$_SESSION['email']."'";  
+      $sql_dept = "select department,role from login where email = '".$_SESSION['email']."'";  
       $run_dept=mysqli_query($mysqli,$sql_dept);
       $row = mysqli_fetch_array($run_dept, MYSQLI_ASSOC);
       $department=$row['department'];
+      $role=$row['role'];
       
-      $sql_employee = "select * from login where department = '".$department."'"; 
+      $sql_employee = "select * from login where department = '".$department."' and role='".$role."'"; 
       $result = mysqli_query($mysqli, $sql_employee);
 
       if (mysqli_num_rows($result) > 0) {
