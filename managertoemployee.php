@@ -24,7 +24,7 @@ if(isset($_POST['add'])){
         // Form is open and ready to be filled since month is passed
   }else{
     //Dont show the form, current date is less than the final date
-      echo 'Your Response was already recorded for the particular Employee!'; 
+      echo 'Your response has already been recorded. Press here to go <a href= personaldetails.php>BACK</a>'; 
       //Insert a back button 
       die();
   }

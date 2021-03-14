@@ -17,7 +17,7 @@ if ($date_now > $newdate) {
     // Form is open and ready to be filled since month is passed
 }else{
   //Dont show the form, current date is less than the final date
-    echo 'Your Response has already been recorded.';
+    echo  'Your response has already been recorded. Press here to go <a href= personaldetails.php>BACK</a>';
     //Insert a back button
     die();
 }
