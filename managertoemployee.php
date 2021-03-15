@@ -57,13 +57,7 @@ if(isset($_POST['add'])){
   header('location:managerhome.php?status=error');
   
   }
-  
-
 }
-
-
-
-
 
 ?>
 
@@ -108,8 +102,7 @@ if(isset($_POST['add'])){
 </ul>
       </div>
     
-    
- 
+     
       <div class="col-lg-8 ml-auto personaldet">
           <div class="tab-pane active mx-3" id="peer" role="tabpanel" aria-labelledby="showall-tab">
           <form action="" method="post">
@@ -139,7 +132,6 @@ if(isset($_POST['add'])){
 
   ?>
 </select>
-
 
   </div>
   <div class="form-row">

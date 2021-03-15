@@ -1,6 +1,85 @@
 <?php
 session_start();  
 include('config.php');
+
+ 
+
+
+if(isset($_POST['add'])){
+ 
+ 
+  
+ $E_ID=$_POST['E_ID'];
+
+$sql_time = "select peer_timestamps from peer where E_ID='$E_ID'";  
+$run_time=mysqli_query($mysqli,$sql_time);
+$row =mysqli_fetch_array($run_time, MYSQLI_ASSOC);
+
+  if(!empty($row['peer_timestamps'])) {
+  
+    $timestamps=$row['peer_timestamps'];
+    $newdate = gmdate("Y-m-d", strtotime("+1 month", strtotime($timestamps)));
+    $date_now = date("Y-m-d"); // this format is string comparable
+  
+  if ($date_now > $newdate) {
+    
+    $updatequery="update peer set EFILLER_ID='$EFILLER_ID',peerq1='$peerq1',peerq2='$peerq2',peerq3='$peerq3',peerq4'$peerq4',E_ID='$E_ID'";
+  
+    $res=mysqli_query($mysqli,$updatequery);
+    
+    echo mysqli_error($mysqli);
+
+    //To check if data is inserted or not
+    if($res){
+     header('location:employeehome.php?status=success');
+    }
+    else{
+     die($res); 
+    header('location:employeehome.php?status=error');
+    
+    }  
+
+    // Form is open and ready to be filled since month is passed
+  }else{
+    //Dont show the form, current date is less than the final date
+      echo 'Your Response was already recorded for the particular Employee!'; 
+      //Insert a back button 
+      die();
+  }
+  }
+
+
+  $EFILLER_ID=$_SESSION['E_ID'];
+  $peerq1=$_POST['peerq1'];
+  $peerq2=$_POST['peerq2'];
+  $peerq3=$_POST['peerq3'];
+  $peerq4=$_POST['peerq4'];
+  $E_ID=$_POST['E_ID'];
+  
+  
+ 
+  //To insert values into the database from PHP
+ $insertquery="insert into peer(EFILLER_ID,peerq1,peerq2,peerq3,peerq4,E_ID) 
+  values('$EFILLER_ID','$peerq1','$peerq2','$peerq3','$peerq4','$E_ID')";
+
+  $res=mysqli_query($mysqli,$insertquery);
+  
+  echo mysqli_error($mysqli);
+  //To check if data is inserted or not
+  if($res){
+   header('location:employeehome.php?status=success');
+  }
+  else{
+   die($res); 
+  header('location:employeehome.php?status=error');
+  
+  }
+}
+
+
+
+
+
 ?>
 
 
@@ -50,12 +129,14 @@ include('config.php');
      
       <div class="col-lg-8 ml-auto personaldet">
 <div class="tab-pane active mx-3" id="form" role="tabpanel" aria-labelledby="showall-tab">
-<form action="">
+<form action="" method="post">
 <div class="form-row">
 <div class="form-group col-md-4">
+
+
 <label for="Dept">Employee Name</label>
 <!--<input type="hidden" name="form_filler" value="<?php echo $_SESSION["E_ID"];?>">-->
-<select id="Dept" class="form-control">
+<select id="Dept" class="form-control" name="E_ID">
 <option value=" " selected disabled hidden>Choose...</option>
 <?php 
       $sql_dept = "select department,role from login where email = '".$_SESSION['email']."'";  
@@ -110,13 +191,13 @@ include('config.php');
 </div>
 <div class="form-group">
 <div class="form-check">
-<input class="form-check-input" type="checkbox" id="gridCheck">
+<input class="form-check-input" type="checkbox" id="gridCheck" required>
 <label class="form-check-label" for="gridCheck">
 I agree to the Terms and Conditions 
 </label>
 </div>
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" name="add" class="btn btn-primary">Submit</button>
 
 </form>
 
