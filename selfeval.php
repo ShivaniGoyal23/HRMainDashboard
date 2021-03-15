@@ -63,7 +63,10 @@ if(isset($_POST['add'])){
 // To redirect after submission
   else{
    die($res); 
-  header('location:employeehome.php?status=error');
+   echo"<script>
+    alert('Your response was unsuccessful');
+   window.location.href='employeehome.php?status=error';
+   </script>"; 
   
   }
 }
