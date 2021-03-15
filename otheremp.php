@@ -10,7 +10,6 @@ if(isset($_POST['add'])){
  
   
 $E_ID=$_POST['E_ID'];
-
 $EFILLER_ID=$_SESSION['E_ID'];
 $peerq1=$_POST['peerq1'];
 $peerq2=$_POST['peerq2'];
