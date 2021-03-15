@@ -58,8 +58,9 @@ if(isset($_POST['add'])){
     echo"<script>
     alert('Your response has been recorded');
    window.location.href='employeehome.php?status=success';
-   </script>";
+   </script>"; 
 }
+// To redirect after submission
   else{
    die($res); 
   header('location:employeehome.php?status=error');
