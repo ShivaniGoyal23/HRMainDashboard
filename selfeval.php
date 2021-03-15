@@ -17,9 +17,8 @@ if ($date_now > $newdate) {
     // Form is open and ready to be filled since month is passed
 }else{
   //Dont show the form, current date is less than the final date
-    echo  'Your response has already been recorded. Press here to go <a href= personaldetails.php>BACK</a>';
+  echo 'Your response has already been recorded! Press here to go <a href= employeehome.php>BACK</a>';
     //Insert a back button
-    die();
 }
 }
 
@@ -61,8 +60,7 @@ if(isset($_POST['add'])){
    </script>"; 
 }
 // To redirect after submission
-  else{
-   die($res); 
+  else{ 
    echo"<script>
     alert('Your response was unsuccessful');
    window.location.href='employeehome.php?status=error';

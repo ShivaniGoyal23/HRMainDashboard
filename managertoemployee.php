@@ -24,9 +24,8 @@ if(isset($_POST['add'])){
         // Form is open and ready to be filled since month is passed
   }else{
     //Dont show the form, current date is less than the final date
-      echo 'Your response has already been recorded. Press here to go <a href= personaldetails.php>BACK</a>'; 
+      echo 'Your response has already been recorded! Press here to go <a href= managerhome.php>BACK</a>'; 
       //Insert a back button 
-      die();
   }
   }
 
@@ -43,18 +42,23 @@ if(isset($_POST['add'])){
   //To insert values into the database from PHP
  $insertquery="insert into employeefeedback(M_ID,inputq1,inputq2,inputq3,inputq4,E_ID) 
   values('$M_ID','$inputq1','$inputq2','$inputq3','$inputq4','$E_ID')
-  ON DUPLICATE KEY UPDATE M_ID='$M_ID',inputq1='$inputq1',inputq2='$inputq2',inputq3='$inputq3',inputq4='$inputq4'";
+  ON DUPLICATE KEY UPDATE M_ID='$M_ID',inputq1='$inputq1',inputq2='$inputq2',inputq3='$inputq3',inputq4='$inputq4', man_timestamps=CURRENT_TIMESTAMP";
 
   $res=mysqli_query($mysqli,$insertquery);
   
   echo mysqli_error($mysqli);
   //To check if data is inserted or not
   if($res){
-   header('location:managerhome.php?status=success');
+    echo"<script>
+    alert('Your response has been recorded');
+   window.location.href='employeehome.php?status=success';
+   </script>"; 
   }
   else{
-   die($res); 
-  header('location:managerhome.php?status=error');
+    echo"<script>
+    alert('Your response was unsuccessful');
+   window.location.href='managerhome.php?status=error';
+   </script>"; 
   
   }
 }

@@ -9,7 +9,14 @@ if(isset($_POST['add'])){
  
  
   
- $E_ID=$_POST['E_ID'];
+$E_ID=$_POST['E_ID'];
+
+$EFILLER_ID=$_SESSION['E_ID'];
+$peerq1=$_POST['peerq1'];
+$peerq2=$_POST['peerq2'];
+$peerq3=$_POST['peerq3'];
+$peerq4=$_POST['peerq4'];
+
 
 $sql_time = "select peer_timestamps from peer where E_ID='$E_ID'";  
 $run_time=mysqli_query($mysqli,$sql_time);
@@ -22,63 +29,56 @@ $row =mysqli_fetch_array($run_time, MYSQLI_ASSOC);
     $date_now = date("Y-m-d"); // this format is string comparable
   
   if ($date_now > $newdate) {
+
+    $updatequery="update peer set EFILLER_ID='$EFILLER_ID',peerq1='$peerq1',peerq2='$peerq2',peerq3='$peerq3',peerq4='$peerq4', peer_timestamps=CURRENT_TIMESTAMP where E_ID='$E_ID'";
     
-    $updatequery="update peer set EFILLER_ID='$EFILLER_ID',peerq1='$peerq1',peerq2='$peerq2',peerq3='$peerq3',peerq4'$peerq4',E_ID='$E_ID'";
-  
     $res=mysqli_query($mysqli,$updatequery);
-    
     echo mysqli_error($mysqli);
 
     //To check if data is inserted or not
     if($res){
-     header('location:employeehome.php?status=success');
+      echo"<script>
+      alert('Your response has been recorded');
+     window.location.href='employeehome.php?status=success';
+     </script>"; 
     }
     else{
-     die($res); 
-    header('location:employeehome.php?status=error');
+      echo"<script>
+      alert('Your response was unsuccessful');
+     window.location.href='employeehome.php?status=error';
+     </script>"; 
     
     }  
 
     // Form is open and ready to be filled since month is passed
   }else{
     //Dont show the form, current date is less than the final date
-      echo 'Your Response was already recorded for the particular Employee!'; 
+    echo 'Your response has already been recorded! Press here to go <a href= employeehome.php>BACK</a>'; 
       //Insert a back button 
-      die();
   }
   }
-
-
-  $EFILLER_ID=$_SESSION['E_ID'];
-  $peerq1=$_POST['peerq1'];
-  $peerq2=$_POST['peerq2'];
-  $peerq3=$_POST['peerq3'];
-  $peerq4=$_POST['peerq4'];
-  $E_ID=$_POST['E_ID'];
-  
-  
+  //If timestamp is empty
+else{
+   //To insert values into the database from PHP
+   $insertquery="insert into peer(EFILLER_ID,peerq1,peerq2,peerq3,peerq4,E_ID) 
+   values('$EFILLER_ID','$peerq1','$peerq2','$peerq3','$peerq4','$E_ID')";
  
-  //To insert values into the database from PHP
- $insertquery="insert into peer(EFILLER_ID,peerq1,peerq2,peerq3,peerq4,E_ID) 
-  values('$EFILLER_ID','$peerq1','$peerq2','$peerq3','$peerq4','$E_ID')";
+   $res=mysqli_query($mysqli,$insertquery);
+   
+   echo mysqli_error($mysqli);
+   //To check if data is inserted or not
+   if($res){
+    header('location:employeehome.php?status=success');
+   }
+   else{
+    die($res); 
+   header('location:employeehome.php?status=error');
+   
+   }
 
-  $res=mysqli_query($mysqli,$insertquery);
-  
-  echo mysqli_error($mysqli);
-  //To check if data is inserted or not
-  if($res){
-   header('location:employeehome.php?status=success');
-  }
-  else{
-   die($res); 
-  header('location:employeehome.php?status=error');
-  
-  }
 }
 
-
-
-
+}
 
 ?>
 
@@ -166,13 +166,13 @@ $row =mysqli_fetch_array($run_time, MYSQLI_ASSOC);
 <div class="form-row">
 <div class="form-group col-md-8">
 <label for="PeerQ1">Does the employee promote and spread positive influence in the workplace environment?</label>
-<input type="text" class="form-control" id="PeerQ1" name="peerQ1" required>
+<input type="text" class="form-control" id="PeerQ1" name="peerq1" required>
 </div>
 </div>
 <div class="form-row">
 <div class="form-group col-md-8">
 <label for="PeerQ2">Does the employee seem disappointed or tired with the day to day work?</label>
-<input type="text" class="form-control" id="PeerQ2" name="peerQ2" required>
+<input type="text" class="form-control" id="PeerQ2" name="peerq2" required>
 </div>
 </div>
 <hr style="height:1px;border:none;color:#333;background-color:#333;"/>
@@ -180,13 +180,13 @@ $row =mysqli_fetch_array($run_time, MYSQLI_ASSOC);
 <div class="form-row">
 <div class="form-group col-md-8">
 <label for="PeerQ3">How is the person’s work productivity in relation to other colleagues? Are there any points where he can improve?</label>
-<input type="text" class="form-control" id="PeerQ3" name="peerQ3" required>
+<input type="text" class="form-control" id="PeerQ3" name="peerq3" required>
 </div>
 </div>
 <div class="form-row">
 <div class="form-group col-md-8">
 <label for="PeerQ4">Is the employee always ready to learn and develop new skills?</label>
-<input type="text" class="form-control" id="PeerQ4" name="peerQ4" required>
+<input type="text" class="form-control" id="PeerQ4" name="peerq4" required>
 </div>
 </div>
 <div class="form-group">
