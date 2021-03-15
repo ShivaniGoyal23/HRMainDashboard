@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+  
+  /* Footer styling */
+  footer{
+    display: block;
+    text-align: center;
+    margin: 10px;
+    padding: 2px;
+    background-color: rgb( 177, 202, 213 );
+    color: rgb(8, 8, 8);
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    bottom: 0;
+    min-width: 98%;
+  }
+
+    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +27,7 @@
     <title>Password Recovery</title>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" style="margin: 5% auto 0;">
         <div class="form">
            <form action="action_page.php" method="post">
                <div class="imgcontainer">
@@ -42,5 +59,11 @@
              </form>
         </div>
      </div>  
+
+     <footer>
+  <p>For support, contact <a href="mailto:xyz@manageasy.com">xyz@manageasy.com</a><br>
+  Created and Managed by Shivani, Dhruv & Dhananjay</p>
+</footer>
+
 </body>
 </html>
