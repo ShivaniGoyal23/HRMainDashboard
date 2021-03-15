@@ -55,8 +55,11 @@ if(isset($_POST['add'])){
   echo mysqli_error($mysqli);
   //To check if data is inserted or not
   if($res){
-   header('location:employeehome.php?status=success');
-  }
+    echo"<script>
+    alert('Your response has been recorded');
+   window.location.href='employeehome.php?status=success';
+   </script>";
+}
   else{
    die($res); 
   header('location:employeehome.php?status=error');
