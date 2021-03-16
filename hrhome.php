@@ -36,11 +36,11 @@
 <div class="col-lg-3 personaldet">
 <img class="rounded mx-auto d-block" src="HR.png" alt="#">
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
-  <li class="nav-item"><a href="search.php">Search</a></li>
-   <li class="nav-item"><a href="addemployee.php">Add Users</a></li>
-   <li class="nav-item"><a href="deptlist.php">Department List</a></li>
-  <li class="nav-item"><a href="hrform.php">Forms</a></li>
+  <li class="nav-item" style="position: relative;left: 15px;"><a href="personaldetails.php">Personal Details</a></li>
+  <li class="nav-item" style="position: relative;left: 15px;"><a href="search.php">Search</a></li>
+   <li class="nav-item" style="position: relative;left: 15px;"><a href="addemployee.php">Add Users</a></li>
+   <li class="nav-item" style="position: relative;left: 15px;"><a href="deptlist.php">Department List</a></li>
+  <li class="nav-item" style="position: relative;left: 15px;"><a href="hrform.php">Forms</a></li>
 </ul>
 </div>
 <div class="col-lg-8 ml-auto personaldet" style="padding-bottom: 250px;">
