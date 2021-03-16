@@ -38,20 +38,23 @@ include('config.php');
    
       <div class="container main">
         <div class="row">
-      <div class="col-lg-3 personaldet">
+      <div class="col-lg-3 personaldet" style="padding-bottom: 250px;">
       <img class="rounded mx-auto d-block pb-3" src="User.png" alt="#">
       <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
-      <li class="nav-item"><a href="selfeval.php" >Self Evaluation Form</a></li>
-     <li class="nav-item"><a href="otheremp.php">Peer Feedback</a></li>
+      <li class="nav-item" style="position: relative;left: 15px;"><a href="personaldetails.php">Personal Details</a></li>
+      <li class="nav-item" style="position: relative;left: 15px;"><a href="selfeval.php" >Self Evaluation Form</a></li>
+     <li class="nav-item" style="position: relative;left: 15px;"><a href="otheremp.php">Peer Feedback</a></li>
       </ul>
       </div>
-      
+      <div class="col-lg-8 ml-auto personaldet" style="padding-bottom: 250px;">
+            <h1 style="position: relative;left: 50px;"> Welcome,  <?php  echo $_SESSION['name'];?></h1><br>
+            <p style="position: relative;left: 50px; font-family: revert;font-size: x-large;">Account type - <?php  echo $_SESSION['role'];?></p>
+            </div>
       
    
         </div>
             </div>
-   
+            
    
    
 

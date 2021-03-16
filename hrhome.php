@@ -43,7 +43,10 @@
   <li class="nav-item"><a href="hrform.php">Forms</a></li>
 </ul>
 </div>
-
+<div class="col-lg-8 ml-auto personaldet" style="padding-bottom: 250px;">
+            <h1 style="position: relative;left: 50px;"> Welcome,  <?php  echo $_SESSION['name'];?></h1><br>
+            <p style="position: relative;left: 50px; font-family: revert;font-size: x-large;">Account type - <?php  echo $_SESSION['role'];?></p>
+            </div>
   </div>
       </div>
 
