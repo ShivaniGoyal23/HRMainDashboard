@@ -25,10 +25,16 @@ if(isset($_POST['add'])){
   
   //To check if data is inserted or not
   if($res){
-   header('location:hrhome.php?status=success');
+    echo"<script>
+    alert('User was successfully added!');
+   window.location.href='hrhome.php?status=success';
+   </script>"; 
   }
   else{
-  header('location:hrhome.php?status=error');
+    echo"<script>
+    alert('User could not be added please check User ID!');
+   window.location.href='addemployee.php?status=error';
+   </script>"; 
   }
 }
 ?>
@@ -81,16 +87,7 @@ if(isset($_POST['add'])){
       <div class="containerx">
       <form action=" " method="post">
     
-      <?php  if(isset($_GET['status']) && $_GET['status'] == 'success')
- {
-   echo'<h2 style="color:green;">User Added Successfully!</h2>';
-}
- 
-  if(isset($_GET['status']) && $_GET['status'] == 'error'){
-    echo '<h2 style="color:tomato;">User Not Added! Please Enter Valid Information</h2>';
-  }
-  ?>
-
+      
         <div class="account-type">
          <a class="hr1">Account type</a>
           <input type="radio" value="employee" id="radioOne" name="account" checked/>
@@ -124,7 +121,7 @@ if(isset($_POST['add'])){
         <input type="password" id="psw" name="psw" required> <br>
 
         <label for="Phone">Phone Number:</label>
-        <input type="text" id="Phone" name="Phone" required> <br>
+        <input type="text" max="9999999999" min="1000000000" id="Phone" name="Phone" required> <br>
 
         <label for="EID">Employee ID:</label>
         <input type="text" id="EID" name="EID" required> <br>
@@ -142,7 +139,7 @@ if(isset($_POST['add'])){
         <input type="text" id="BloodGrp" name="BloodGrp" required> <br>
 
         <label for="Emergency">Emergency Contact:</label>
-        <input type="text" style="height: 60px;"  id="Emergency" name="Emergency" required> <br>
+        <input type="text" max="9999999999" min="1000000000" id="Emergency" name="Emergency" required> <br>
 
         <button type="submit" name="add">Add User</button>
       </form>
