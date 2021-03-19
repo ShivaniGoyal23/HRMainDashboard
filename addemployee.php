@@ -57,7 +57,7 @@ if(isset($_POST['add'])){
     <nav class="navbar sticky-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <img class="logo" src="logo.png" alt="Manageasy">
+          <a href="hrhome.php"><img class="logo" src="logo.png" alt="Manageasy"></a>
           </div>
           <ul class="nav navbar-nav navbar-right">
             <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span>Welcome HR</a></li>
