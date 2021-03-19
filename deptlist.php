@@ -2,9 +2,6 @@
  include('config.php'); 
              session_start();
 
-         
-             
-
 ?>
 
 
@@ -49,32 +46,32 @@
 
 
 <div class="col-lg-8 ml-auto personaldet">
-  
-
-<div class="tab-pane active" id="departmentlist" role="tabpanel" aria-labelledby="showall-tab">
-      
-<?php $result = mysqli_query($mysqli,"select * from login where role = 'employee'");  ?>
-
+<div class="tab-pane active form" id="departmentlist" role="tabpanel" aria-labelledby="showall-tab">
 <table style="width:100%">
 	<thead>
 		<tr>
-      <th>ID</th>
-			<th>Name</th>
-			<th>Department</th>
-			<th colspan="2">Action</th>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Department</th>
+    <th colspan="2">Action</th>
 		</tr>
 	</thead>
-	
+
+<?php 
+$sel_query = "select * from login where role = 'employee' ORDER BY E_ID asc;"; 
+$result=mysqli_query($mysqli,$sel_query); ?>
+
+<tbody>	
 	<?php while ($row = mysqli_fetch_array($result)) { ?>
 		<tr>
 			<td><?php echo $row['E_ID']; ?></td>
 			<td><?php echo $row['name']; ?></td>
       <td><?php echo $row['department']; ?></td>
 			<td>
-				<a href="edit.php?edit=<?php echo $row['E_ID']; ?>">Edit</a>
+				<a href="edit.php?E_ID=<?php echo $row['E_ID']; ?>">Edit</a>
 			</td>
 			<td>
-				<a href="deptlist.php?del=<?php echo $row['E_ID']; ?>">Delete</a>
+				<a href="delete.php?E_ID=<?php echo $row['E_ID']; ?>">Delete</a>
 			</td>
 		</tr>
 	<?php } ?>

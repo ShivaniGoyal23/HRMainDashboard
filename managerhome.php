@@ -43,71 +43,10 @@ include('config.php');
   <li class="nav-item"><a href="managertoemployee.php">Employee Feedback</a></li>
 </ul>
       </div>
-      
-          <div class="tab-pane fade" id="deptdetails" role="tabpanel" aria-labelledby="showall-tab">PQR</div>
-    
-
-
-          <div class="tab-pane fade mx-3" id="peer" role="tabpanel" aria-labelledby="showall-tab">
-          <form>
-          <div class="form-group col-md-4">
-  <label for="Emp">Employee Name:</label>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="QOW">Performance wrt the Expectations</label>
-      <select id="QOW" class="form-control" required>
-      <option selected>Choose...</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group col-md-4">
-    <label for="Concentration">Performance wrt other Employees</label>
-      <select id="Concentration" class="form-control"required>
-      <option value="none">Choose..</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-8">
-      <label for="inputQ1">How satisfied are you with work done by the employee?</label>
-      <input type="text" class="form-control" id="inputQ1"required>
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-8">
-      <label for="inputQ2">How can his/her performance be improved in the coming period?</label>
-      <input type="text" class="form-control" id="inputQ2" required>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        I agree to the Terms and Conditions 
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-  </div>
-
-
-
-        </div>
-      </div>
+      <div class="col-lg-8 ml-auto personaldet" style="padding-bottom: 250px;">
+            <h1 style="position: relative;left: 50px;"> Welcome,  <?php  echo $_SESSION['name'];?></h1><br>
+            <p style="position: relative;left: 50px; font-family: revert;font-size: x-large;">Account type - <?php  echo $_SESSION['role'];?></p>
+            </div>
       
         </div>
             </div>
