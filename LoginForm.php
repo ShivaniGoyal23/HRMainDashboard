@@ -44,7 +44,11 @@ session_start();
       }
       else
       {
-        echo '<script>alert("Please Check username or Password")</script>';
+        echo"<script>
+    alert('Please Check your Email or Password');
+   window.location.href='LoginForm.php?status=error';
+   </script>"; 
+        
       }
   } 
 ?>

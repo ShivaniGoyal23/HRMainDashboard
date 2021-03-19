@@ -34,7 +34,7 @@ include('config.php');
       </nav>   
 
    
-      <div class="container main">
+      <div class="container main mx-3">
         <div class="row">
       <div class="col-lg-3 personaldet">
       <img class="rounded mx-auto d-block pb-3" src="User.png" alt="#">
