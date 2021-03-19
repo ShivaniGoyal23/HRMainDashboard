@@ -51,7 +51,7 @@ if(isset($_POST['add'])){
   if($res){
     echo"<script>
     alert('Your response has been recorded');
-   window.location.href='employeehome.php?status=success';
+   window.location.href='managerhome.php?status=success';
    </script>"; 
   }
   else{

@@ -1,6 +1,10 @@
 <?php
  include('config.php'); 
              session_start();
+
+         
+             
+
 ?>
 
 
@@ -38,8 +42,8 @@
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
   <li class="nav-item"><a href="addemployee.php">Add Users</a></li>
-  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#departmentlist" role="tab" aria-controls="showall" aria-selected="true">Department List</a></li>
-  <li class="nav-item"><a href="hrform.php">View Forms</a></li>
+  <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#departmentlist" role="tab" aria-controls="showall" aria-selected="true">Employee List</a></li>
+  <li class="nav-item"><a href="hrform.php">View Employee Score</a></li>
 </ul>
 </div>
 
@@ -49,46 +53,33 @@
 
 <div class="tab-pane active" id="departmentlist" role="tabpanel" aria-labelledby="showall-tab">
       
-      <nav class="navbar navbar-light search" style="background-color: #D6E9F7;">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-sm" type="submit" style="background-color:  #2F8ED4;">SEARCH</button>
-        </form>
-        <button class="btn btn-sm" type="submit" style="background-color:  #2F8ED4;">Add</button>
-      </nav>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Department Name</th>
-            <th scope="col">Managers</th>
-            <th scope="col">Employees</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Finance</th>
-            <td>1</td>
-            <td>3</td>
-            <td><button class="btn btn-sm" type="submit" style="background-color:  #2F8ED4;">Edit</button></td>
-          </tr>
-          <tr>
-            <th scope="row">Marketing</th>
-            <td>2</td>
-            <td>20</td>
-            <td><button class="btn btn-sm" type="submit" style="background-color:  #2F8ED4;">Edit</button></td>
-          </tr>
-          <tr>
-            <th scope="row">Operations</th>
-            <td>1</td>
-            <td>10</td>
-            <td><button class="btn btn-sm" type="submit" style="background-color:  #2F8ED4;">Edit</button></td>
-          </tr>
-        </tbody>
-      </table>
+<?php $result = mysqli_query($mysqli,"select * from login where role = 'employee'");  ?>
+
+<table style="width:100%">
+	<thead>
+		<tr>
+      <th>ID</th>
+			<th>Name</th>
+			<th>Department</th>
+			<th colspan="2">Action</th>
+		</tr>
+	</thead>
+	
+	<?php while ($row = mysqli_fetch_array($result)) { ?>
+		<tr>
+			<td><?php echo $row['E_ID']; ?></td>
+			<td><?php echo $row['name']; ?></td>
+      <td><?php echo $row['department']; ?></td>
+			<td>
+				<a href="edit.php?edit=<?php echo $row['E_ID']; ?>">Edit</a>
+			</td>
+			<td>
+				<a href="deptlist.php?del=<?php echo $row['E_ID']; ?>">Delete</a>
+			</td>
+		</tr>
+	<?php } ?>
+</table>
     </div>
-
-
 
    
 </div>
