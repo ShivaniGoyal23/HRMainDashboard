@@ -42,10 +42,9 @@ include('config.php');
 if($_SESSION['role']=='admin')
 {
   ?>
-  <li class="nav-item"><a href="search.php">Search</a></li>
    <li class="nav-item"><a href="addemployee.php" role="tab">Add Users</a></li>
   <li class="nav-item"><a  href="deptlist.php">Department List</a></li>
-  <li class="nav-item"><a  href="hrform.php">Forms</a></li>
+  <li class="nav-item"><a  href="hrform.php">View Forms</a></li>
 <?php } 
 if($_SESSION['role']=='manager')
 {
