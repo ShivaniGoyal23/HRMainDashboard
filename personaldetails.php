@@ -43,8 +43,8 @@ if($_SESSION['role']=='admin')
 {
   ?>
    <li class="nav-item"><a href="addemployee.php" role="tab">Add Users</a></li>
-  <li class="nav-item"><a  href="deptlist.php">Department List</a></li>
-  <li class="nav-item"><a  href="hrform.php">View Forms</a></li>
+  <li class="nav-item"><a  href="deptlist.php">Employee List</a></li>
+  <li class="nav-item"><a  href="hrform.php">View Employee Score</a></li>
 <?php } 
 if($_SESSION['role']=='manager')
 {
@@ -103,6 +103,11 @@ if($_SESSION['role']=='employee')
                   <tr>
                     <td>Phone number</td>
                     <td><?php echo $rows['phonenumber'];?></td>
+                  </tr>
+                  <tr>
+                  <tr>
+                    <td>Department</td>
+                    <td><?php echo $rows['department'];?></td>
                   </tr>
                   <tr>
                     <td>ID</td>

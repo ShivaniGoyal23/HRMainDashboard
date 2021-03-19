@@ -38,7 +38,7 @@
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
   <li class="nav-item" style="position: relative;left: 15px;"><a href="personaldetails.php">Personal Details</a></li>
    <li class="nav-item" style="position: relative;left: 15px;"><a href="addemployee.php">Add Users</a></li>
-   <li class="nav-item" style="position: relative;left: 15px;"><a href="deptlist.php">Department List</a></li>
+   <li class="nav-item" style="position: relative;left: 15px;"><a href="deptlist.php">Employee List</a></li>
   <li class="nav-item" style="position: relative;left: 15px;"><a href="hrform.php">View Forms</a></li>
 </ul>
 </div>

@@ -73,8 +73,8 @@ if(isset($_POST['add'])){
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
   <li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
   <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#employee" role="tab" aria-controls="showall" aria-selected="true">Add Users</a></li>
-  <li class="nav-item"><a href="deptlist.php" >Department List</a></li>
-  <li class="nav-item"><a href="hrform.php">View Forms</a></li>
+  <li class="nav-item"><a href="deptlist.php" >Employee List</a></li>
+  <li class="nav-item"><a href="hrform.php">View Employee Score</a></li>
 </ul>
 </div>
 
