@@ -98,7 +98,7 @@ session_start();
               <div class="input-icons">
                 <label for="email"><b>Email</b></label>
               <i class="fa fa-envelope icon" style="font-size:30px"></i>
-              <input type="email" placeholder="Enter Email" name="email" required>
+              <input type="email" pattern="(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}" placeholder="Enter Email" name="email" required>
             </div>
             <div class="input-icons">
               <label for="password"><b>Password</b></label>
