@@ -1,6 +1,7 @@
 <?php
  include('config.php'); 
              session_start();
+     
 ?>
 
 
@@ -48,8 +49,33 @@
 <div class="col-lg-8 ml-auto personaldet">
   
 
-<div class="tab-pane fade" id="forms" role="tabpanel" aria-labelledby="showall-tab">RST</div>
-  </div>
+<div class="tab-pane active mx-3" id="forms" role="tabpanel" aria-labelledby="showall-tab">
+          <form action="" method="post">
+          <div class="form-group col-md-4">
+
+  <label for="Emp">Employee Name:</label>
+  <select id="Emp" class="form-control" name=" ">
+<option value=" " selected disabled hidden>Choose...</option>
+<?php 
+      $sql_emp = "select * from login where role='employee'";  
+      $run_emp=mysqli_query($mysqli,$sql_emp);
+      
+
+      if (mysqli_num_rows($run_emp) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($run_emp)) {
+          echo "<option value='".$row["E_ID"]."'>".$row["name"]."</option>";
+        }
+      } else {
+        echo "0 results";
+      }
+  ?>
+</select>
+</div>
+<button type="submit" name="score" class="btn btn-primary mx-4">View Score</button>
+</div>
+
+
 
   </div>
       </div>
