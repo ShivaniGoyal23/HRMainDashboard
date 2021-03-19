@@ -115,7 +115,7 @@ if(isset($_POST['add'])){
         <input type="text" id="Desg" name="Desg" required> <br>
 
         <label for="email">Official Email ID:</label>
-        <input type="email" id="Oemail" name="Oemail" required> <br>
+        <input type="email" pattern="(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}" id="Oemail" name="Oemail" required> <br>
 
         <label for="email">Official Email ID Password:</label>
         <input type="password" id="psw" name="psw" required> <br>
