@@ -53,6 +53,7 @@ $row =mysqli_fetch_array($run_time, MYSQLI_ASSOC);
   }else{
     //Dont show the form, current date is less than the final date
     echo 'Your response has already been recorded! Press here to go <a href= employeehome.php>BACK</a>'; 
+    die();
       //Insert a back button 
   }
   }

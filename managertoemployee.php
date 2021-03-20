@@ -7,6 +7,14 @@ if(isset($_POST['add'])){
  
   
   $E_ID=$_POST['E_ID'];
+  
+  $M_ID=$_SESSION['E_ID']; 
+  $inputq1=$_POST['inputq1'];
+  $inputq2=$_POST['inputq2'];
+  $inputq3=$_POST['inputq3'];
+  $inputq4=$_POST['inputq4'];
+  
+  
  
   $sql_time = "select man_timestamps from employeefeedback where E_ID='$E_ID'";  
   $run_time=mysqli_query($mysqli,$sql_time);
@@ -21,47 +29,66 @@ if(isset($_POST['add'])){
     $date_now = date("Y-m-d"); // this format is string comparable
   
   if ($date_now > $newdate) {
-        // Form is open and ready to be filled since month is passed
+      
+    $updatequery="update employeefeedback set M_ID='$M_ID',inputq1='$inputq1',inputq2='$inputq2',inputq3='$inputq3',inputq4='$inputq4', man_timestamps=CURRENT_TIMESTAMP where E_ID='$E_ID'";
+    $res=mysqli_query($mysqli,$updatequery);
+    echo mysqli_error($mysqli);
+    if($res){
+      echo"<script>
+      alert('Your response has been recorded');
+     window.location.href='managerhome.php?status=success';
+     </script>"; 
+    }
+    else{
+      echo"<script>
+      alert('Your response was unsuccessful');
+     window.location.href='managerhome.php?status=error';
+     </script>"; 
+    
+    }
+
+
+    
+    // Form is open and ready to be filled since month is passed
   }else{
     //Dont show the form, current date is less than the final date
-      echo 'Your response has already been recorded! Press here to go <a href= managerhome.php>BACK</a>'; 
+      echo 'Your response has already been recorded! Press here to go <a href= managerhome.php>BACK</a>';
+      die(); 
       //Insert a back button 
   }
-  }
 
 
 
-  $M_ID=$_SESSION['E_ID']; 
-  $inputq1=$_POST['inputq1'];
-  $inputq2=$_POST['inputq2'];
-  $inputq3=$_POST['inputq3'];
-  $inputq4=$_POST['inputq4'];
-  
-  
- 
-  //To insert values into the database from PHP
- $insertquery="insert into employeefeedback(M_ID,inputq1,inputq2,inputq3,inputq4,E_ID) 
-  values('$M_ID','$inputq1','$inputq2','$inputq3','$inputq4','$E_ID')
-  ON DUPLICATE KEY UPDATE M_ID='$M_ID',inputq1='$inputq1',inputq2='$inputq2',inputq3='$inputq3',inputq4='$inputq4', man_timestamps=CURRENT_TIMESTAMP";
-
-  $res=mysqli_query($mysqli,$insertquery);
-  
-  echo mysqli_error($mysqli);
-  //To check if data is inserted or not
-  if($res){
-    echo"<script>
-    alert('Your response has been recorded');
-   window.location.href='managerhome.php?status=success';
-   </script>"; 
   }
   else{
-    echo"<script>
-    alert('Your response was unsuccessful');
-   window.location.href='managerhome.php?status=error';
-   </script>"; 
+    $insertquery="insert into employeefeedback(M_ID,inputq1,inputq2,inputq3,inputq4,E_ID) 
+    values('$M_ID','$inputq1','$inputq2','$inputq3','$inputq4','$E_ID')";
   
+    $res=mysqli_query($mysqli,$insertquery);
+    
+    echo mysqli_error($mysqli);
+    //To check if data is inserted or not
+    if($res){
+      echo"<script>
+      alert('Your response has been recorded');
+     window.location.href='managerhome.php?status=success';
+     </script>"; 
+    }
+    else{
+      echo"<script>
+      alert('Your response was unsuccessful');
+     window.location.href='managerhome.php?status=error';
+     </script>"; 
+    
+    }
   }
-}
+  
+   
+
+
+  }
+ 
+  //To insert values into the database from PHP
 
 ?>
 
