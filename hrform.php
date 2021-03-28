@@ -1,8 +1,9 @@
 <?php
  include('config.php'); 
              session_start();
-     
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -49,11 +50,11 @@
   
 
 <div class="tab-pane active mx-3" id="forms" role="tabpanel" aria-labelledby="showall-tab">
-          <form action="" method="post">
+  <form action="" method="post">
           <div class="form-group col-md-4">
 
   <label for="Emp">Employee Name:</label>
-  <select id="Emp" class="form-control" name=" ">
+  <select id="Emp" class="form-control" name="E_ID">
 <option value=" " selected disabled hidden>Choose...</option>
 <?php 
       $sql_emp = "select * from login where role='employee'";  
@@ -72,6 +73,38 @@
 </select>
 </div>
 <button type="submit" name="score" class="btn btn-primary mx-4">View Score</button>
+</form>
+
+<?php
+if(isset($_POST['score'])){
+              ?>
+          <table style="width:100%">
+           <?php 
+              $E_ID=$_POST['E_ID'];
+              $result = mysqli_query($mysqli,"select * from score where E_ID = '$E_ID'"); 
+              while($rows=mysqli_fetch_array($result)) 
+              { 
+           ?> 
+                <tr>
+                  <td>ID</td>
+                  <td><?php echo $rows['E_ID'];?></td>
+                </tr>
+                <tr>
+                  <td>Employee Satisfaction Score</td>
+                  <td><?php echo $rows['selfscore']." ".'/5';?></td>
+                </tr>
+                <tr>
+                  <td>Prodcutivity Score</td>
+                  <td><?php echo $rows['prodscore']." ".'/5';?></td>
+                </tr>
+
+            <?php 
+              } }
+           ?> 
+              </table>
+          
+
+
 </div>
 
 

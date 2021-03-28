@@ -7,7 +7,6 @@ if(isset($_POST['add'])){
  
   
   $E_ID=$_POST['E_ID'];
-  
   $M_ID=$_SESSION['E_ID']; 
   $inputq1=$_POST['inputq1'];
   $inputq2=$_POST['inputq2'];
