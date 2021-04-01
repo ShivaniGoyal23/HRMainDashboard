@@ -26,7 +26,7 @@
           <a href="hrhome.php"><img class="logo" src="logo.png" alt="Manageasy"></a>
           </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span>Welcome HR</a></li>
+            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span>echo $_SESSION['name']; </a></li>
             <li><a class="logout" href="LoginForm.php"><i class="fa fa-sign-out"></i> Logout</a></li>
           </ul>
         </div>
@@ -68,7 +68,7 @@ $result=mysqli_query($mysqli,$sel_query); ?>
 			<td><?php echo $row['name']; ?></td>
       <td><?php echo $row['department']; ?></td>
 			<td>
-				<a href="edit.php?E_ID=<?php echo $row['E_ID']; ?>">Edit</a>
+				<a href="edit.php?'E_ID'=<?php echo $row['E_ID']; ?>">Edit</a>
 			</td>
 			<td>
 				<a href="delete.php?E_ID=<?php echo $row['E_ID']; ?>">Delete</a>
