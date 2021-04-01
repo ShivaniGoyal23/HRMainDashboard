@@ -32,7 +32,7 @@ include('config.php');
         </div>
       </nav>   
 
-      <div class="container main mx-3">
+      <div class="container main ">
   <div class="row">
 <div class="col-lg-3 personaldet">
 <img class="rounded mx-auto d-block" src="HR.png" alt="#">
