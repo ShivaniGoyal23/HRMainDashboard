@@ -19,6 +19,13 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <title>Home</title>
 </head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+</style>
 <body>
     <nav class="navbar sticky-top">
         <div class="container-fluid">
@@ -49,7 +56,7 @@
 
 <div class="col-lg-8 ml-auto personaldet">
 <div class="tab-pane active form" id="departmentlist" role="tabpanel" aria-labelledby="showall-tab">
-<table style="width:100%">
+<table style="width:90%; margin:10px">
 	<thead>
 		<tr>
     <th scope="col">ID</th>
@@ -70,10 +77,10 @@ $result=mysqli_query($mysqli,$sel_query); ?>
 			<td><?php echo $row['name']; ?></td>
       <td><?php echo $row['department']; ?></td>
 			<td>
-				<a href="edit.php?'E_ID'=<?php echo $row['E_ID']; ?>">Edit</a>
+				<a href="edit.php?'E_ID'=<?php echo $row['E_ID']; ?>"><i class="fa fa-edit"></i> Edit</a>
 			</td>
 			<td>
-				<a href="delete.php?E_ID=<?php echo $row['E_ID']; ?>">Delete</a>
+				<a href="delete.php?E_ID=<?php echo $row['E_ID']; ?>"><i class="fa fa-trash"></i> Delete</a>
 			</td>
 		</tr>
 	<?php } ?>
