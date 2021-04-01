@@ -24,7 +24,7 @@ include('config.php');
             <img class="logo" src="logo.png" alt="Manageasy">
           </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span><?php  
+            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i> </span><?php  
               echo $_SESSION['name'];    
                 ?> </a></li>
             <li><a class="logout" href="LoginForm.php"><i class="fa fa-sign-out"></i> Logout</a></li>
