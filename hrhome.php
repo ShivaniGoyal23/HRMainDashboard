@@ -41,7 +41,7 @@
   <li class="nav-item" style="position: relative;left: 15px;"><a href="personaldetails.php">Personal Details</a></li>
    <li class="nav-item" style="position: relative;left: 15px;"><a href="addemployee.php">Add Users</a></li>
    <li class="nav-item" style="position: relative;left: 15px;"><a href="deptlist.php">Employee List</a></li>
-  <li class="nav-item" style="position: relative;left: 15px;"><a href="hrform.php">View Forms</a></li>
+  <li class="nav-item" style="position: relative;left: 15px;"><a href="hrform.php">View Employee Score</a></li>
 </ul>
 </div>
 <div class="col-lg-8 ml-auto personaldet" style="padding-bottom: 250px;">
