@@ -62,6 +62,7 @@ table, th, td {
     <th scope="col">ID</th>
     <th scope="col">Name</th>
     <th scope="col">Department</th>
+    <th scope="col">Designation</th>
     <th colspan="2">Action</th>
 		</tr>
 	</thead>
@@ -76,8 +77,9 @@ $result=mysqli_query($mysqli,$sel_query); ?>
 			<td><?php echo $row['E_ID']; ?></td>
 			<td><?php echo $row['name']; ?></td>
       <td><?php echo $row['department']; ?></td>
+      <td><?php echo $row['designation']; ?></td>
 			<td>
-				<a href="edit.php?'E_ID'=<?php echo $row['E_ID']; ?>"><i class="fa fa-edit"></i> Edit</a>
+				<a href="edit.php?E_ID=<?php echo $row['E_ID']; ?>"><i class="fa fa-edit"></i> Edit</a>
 			</td>
 			<td>
 				<a href="delete.php?E_ID=<?php echo $row['E_ID']; ?>"><i class="fa fa-trash"></i> Delete</a>
@@ -94,7 +96,6 @@ $result=mysqli_query($mysqli,$sel_query); ?>
       </div>
 
 </body>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.js" integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.js" integrity="sha256-a4eB5VWh1N88HZWO7jqpWhAGyb0vr8pTQ8KiXNClbYg=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
