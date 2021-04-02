@@ -40,9 +40,9 @@
 <div class="col-lg-3 personaldet">
 <img class="rounded mx-auto d-block" src="HR.png" alt="#">
 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-<li class="nav-item"><a href="personaldetails.php">Personal Details</a></li>
-  <li class="nav-item"><a href="addemployee.php">Add Users</a></li>
-  <li class="nav-item"><a href="deptlist.php">Employee List</a></li>
+<li class="nav-item" style="position: relative;left: 15px;"><a href="personaldetails.php">Personal Details</a></li>
+  <li class="nav-item" style="position: relative;left: 15px;"><a href="addemployee.php">Add Users</a></li>
+  <li class="nav-item" style="position: relative;left: 15px;"><a href="deptlist.php">Employee List</a></li>
   <li class="nav-item"><a class="nav-link active" id="showall-tab" data-toggle="pill" href="#forms" role="tab" aria-controls="showall" aria-selected="true">View Employee Score</a></li>
 </ul>
 </div>
