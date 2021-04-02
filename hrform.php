@@ -27,13 +27,15 @@
           <a href="hrhome.php"><img class="logo" src="logo.png" alt="Manageasy"></a>
           </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i></span>Welcome HR</a></li>
+            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i> </span><?php  
+              echo $_SESSION['name'];    
+                ?></a></li>
             <li><a class="logout" href="LoginForm.php"><i class="fa fa-sign-out"></i> Logout</a></li>
           </ul>
         </div>
       </nav>   
 
-      <div class="container main mx-3">
+      <div class="container main">
   <div class="row">
 <div class="col-lg-3 personaldet">
 <img class="rounded mx-auto d-block" src="HR.png" alt="#">
