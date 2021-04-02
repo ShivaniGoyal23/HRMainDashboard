@@ -18,12 +18,31 @@ $row = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="hrhome.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <title>Update Employee Record</title>
+    <title>Update Employee Details</title>
 </head>
+<style>
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
+</style>
 
 <body>
+    <nav class="navbar sticky-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          <a href="hrhome.php"><img class="logo" src="logo.png" alt="Manageasy"></a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="employeename" href="#"><i class="fa fa-smile-o"></i> </span> Dhruv Chauhan</a></li>
+            <li><a class="logout" href="LoginForm.php"><i class="fa fa-sign-out"></i> Logout</a></li>
+          </ul>
+        </div>
+      </nav>   
 <div class="form">
-<h1>Update Employee Record</h1>
+<h1 style="text-align:center">Update Employee Details</h1>
 <?php
 $status = "";
 if(isset($_POST['new']))
@@ -45,12 +64,12 @@ echo '<h5 style="color:#4BB543;">'.$status.'</h5>';
 }else {
     
 ?>
-     
-                    <h3><?php echo $row['name'];?></h3>
+     <br>
+                    <h3>Employee- <?php echo $row['name'];?></h3>
                     <br>
                     
                     <div class="col-lg-12 ml-auto personaldet">
-                    <form name="form" method="post" action=""> 
+                    <form name="form" method="post" action="" > 
        
 
         <label for="Desg">Designation:</label>
@@ -66,6 +85,7 @@ echo '<h5 style="color:#4BB543;">'.$status.'</h5>';
         <input type="text" max="9999999999" min="1000000000" id="Emergency" name="Emergency" required> <br>
 
        <div class="final">
+       <br>
         <button type="submit" name="new" class="btn btn-primary mx-5">Update</button></div>
 
 </form>
